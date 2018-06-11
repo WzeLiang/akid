@@ -1,0 +1,70 @@
+<!--pages/education/home/home.wxml-->
+<view class='education'>
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+      <swiper-item class="swiper-item">
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='pro-box'>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>考勤</view>
+      </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>班级课表</view>
+      </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>家庭作业</view>
+      </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>教师风采</view>
+      </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+        <view>在线请假</view>
+       </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>校园直播</view>
+      </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>光荣榜</view>
+      </view>
+      <view class='pro-item'>
+          <image src='../../../images/education/icon.gif'></image>
+          <view>活动报名</view>
+      </view>
+  </view>
+  <view class='class-msg'>
+    <view class='msg-head'>
+      <view class='title-h3'>班级通知</view>
+      <view class='more'>查看更多></view>
+    </view>
+    <view class='msg-content'>
+        <view class='content-item'>
+          <view class='item-title'>
+            <view class='title-classnumb unread'>五年级二班</view>
+             <view class='title-date'>2018-9-10 20：22</view>
+          </view>
+          <view class='item-info'>
+            开课通知：2018/5/20，5/27，6/3周日9：00-19：00艺术本科的学生在金高路98号陆家嘴金融中心9楼15，26号教师上课
+          </view>
+        </view>
+        <view class='content-item'>
+          <view class='item-title'>
+            <view class='title-classnumb'>五年级二班</view>
+             <view class='title-date'>2018-9-10 20：22</view>
+          </view>
+          <view class='item-info'>
+            开课通知：2018/5/20，5/27，6/3周日9：00-19：00艺术本科的学生在金高路98号陆家嘴金融中心9楼15，26号教师上课
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
