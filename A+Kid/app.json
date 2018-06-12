@@ -1,0 +1,41 @@
+{
+  "pages":[
+    
+   
+    "pages/education/home/home",
+    "pages/life/home/home",
+    "pages/personal/home/home",
+    "pages/enroll/register/register",
+    "pages/enroll/login/login",
+    "pages/enroll/forget/forget",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "A佳Kid",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/education/home/home",
+        "text": "教务"
+       
+      },
+      {
+        "pagePath": "pages/life/home/home",
+        "text": "生活"
+       
+      },
+      {
+        "pagePath": "pages/personal/home/home",
+        "text": "个人"
+        
+      }
+    ]
+  }
+  
+}

@@ -1,0 +1,21 @@
+/* pages/life/home/home.wxss */
+.life{
+
+}
+.box{
+  display: flex;
+  flex-flow: wrap;
+  padding: 0 20rpx;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+.box .item{
+  width: 215rpx;
+ box-sizing: border-box;
+
+ 
+}
+image{
+  width: 100%;
+  height: 350rpx;
+}

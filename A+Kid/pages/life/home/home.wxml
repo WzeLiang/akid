@@ -1,0 +1,19 @@
+<view class='life'>
+    <view class='box'>
+      <view class='item'>
+        <image src='../../../images/education/school.gif'></image>
+      </view>
+       <view class='item'>
+        <image src='../../../images/education/school.gif'></image>
+      </view>
+       <view class='item'>
+        <image src='../../../images/education/school.gif'></image>
+      </view>
+       <view class='item'>
+        <image src='../../../images/education/school.gif'></image>
+      </view>
+       <view class='item'>
+        <image src='../../../images/education/school.gif'></image>
+      </view>
+    </view>
+</view>
