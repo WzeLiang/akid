@@ -1,16 +1,17 @@
 <view class="forget">
   <form class='forget-form'  bindsubmit="forgetsubmit">
     <view class='form-item'>
-        <input placeholder='请输入您的手机号' placeholder-class="input-placeholder" type='number' maxlength='11'></input>
+        <input placeholder='请输入您的手机号' name='tel' value="{{tel}}"  placeholder-class="input-placeholder" type='number' maxlength='11'></input>
     </view>
     <view class='form-item'>
-        <input placeholder='请输入密码' placeholder-class="input-placeholder"  type='number'></input>
+        <input placeholder='请输入密码'name="pass"  value="{{pass}}" placeholder-class="input-placeholder"  type='number'></input>
     </view>
     <view class='form-item proving-code'>
-        <input placeholder='请输入验证码'placeholder-class="input-placeholder"  ></input>
+        <input placeholder='请输入验证码' name="provingcode" value='{{provingcode}}'placeholder-class="input-placeholder"  ></input>
         <text class='take-provingcode'>获取验证码</text>
     </view>
     
-    <button  class='sub-forget sub-button'>确定</button>
+    <button formType="submit" class='sub-forget sub-button'>确定</button>
   </form>
 </view>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

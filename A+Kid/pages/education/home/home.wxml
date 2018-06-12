@@ -15,7 +15,7 @@
          </navigator>
       </view>
       <view class='pro-item'>
-         <navigator url='../../enroll/forget/forget'>
+         <navigator url='../../enroll/login/login'>
              <image src='../../../images/education/icon.gif'></image>
              <view>班级课表</view>
          </navigator>

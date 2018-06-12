@@ -1,2 +1,17 @@
-<!--pages/enroll/login/login.wxml-->
-<text>pages/enroll/login/login.wxml</text>
+<view class="login">
+  <form class='login-form'  bindsubmit="loginsubmit">
+    <view class='form-item'>
+        <input placeholder='请输入您的手机号' name='tel' value='{{tel}}' placeholder-class="input-placeholder"  type='number' maxlength='11'></input>
+    </view>
+    <view class='form-item'>
+        <input placeholder='请输入密码' name='pass' value="{{pass}}"  placeholder-class="input-placeholder"   type='number'></input>
+    </view>
+    <view class='forget'>
+      <navigator url='../forget/forget'>
+          忘记密码
+      </navigator>
+    </view> 
+    <button formType="submit" class='sub-login sub-button'>确定</button>
+  </form>
+</view>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

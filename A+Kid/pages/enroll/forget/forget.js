@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    showMessage: false,
+    messageContent: '',
+  },
+  showMessage: function (text) {
+    var that = this
+    that.setData({
+      showMessage: true,
+      messageContent: text
+    })
+    setTimeout(function () {
+      that.setData({
+        showMessage: false,
+        messageContent: ''
+      })
+    }, 3000)
+  },
+  forgetsubmit:function(e){
+    console.log(e.detail.value);
+    var formdata = e.detail.value;
+    if(formdata.tel==""){
+      this.showMessage('请输入手机号码');
+    } else if (formdata.pass == ""){
+      this.showMessage('请输入密码');
+    } else if (formdata.provingcode==''){
+      this.showMessage('请输入验证码');
+    }else{
+      //调用接口
+    }
   },
 
   /**

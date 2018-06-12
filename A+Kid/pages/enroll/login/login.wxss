@@ -1,1 +1,25 @@
-/* pages/enroll/login/login.wxss */
+
+.login{
+  padding: 30rpx;
+}
+
+.form-item{
+  border-bottom: 1rpx solid rgb(229,229,229);
+  padding: 25rpx 0;
+  letter-spacing: 2rpx;
+}
+.proving-code {
+  display: flex;
+  justify-content: space-between;
+}
+.take-provingcode{
+  color: rgb(119, 195, 41);
+}
+.forget{
+  text-align: right;
+  margin-top: 20rpx;
+  color: rgb(119, 195, 41);
+}
+.sub-forget{
+   
+}
