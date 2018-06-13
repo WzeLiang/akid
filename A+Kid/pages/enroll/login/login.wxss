@@ -1,4 +1,6 @@
-
+.login-img image{
+  height: 450rpx;
+}
 .login{
   padding: 30rpx;
 }

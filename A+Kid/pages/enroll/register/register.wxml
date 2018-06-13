@@ -27,6 +27,7 @@
     <view class='form-item'>
         <input placeholder='请输入密码' placeholder-class="input-placeholder" value='{{pass}}'name='pass' type='number'></input>
     </view>
+    <view class='pass-tip'>密码为6-16位字母和数字</view>
     <button formType="submit" class='sub-register sub-button'>确定</button>
   </form>
 </view>

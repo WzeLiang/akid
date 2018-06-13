@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    array: ['请选择您的身份', '老师', '家长',],
+    index: 0,
     showMessage: false,
     messageContent: '',
   },
@@ -26,7 +28,9 @@ Page({
     var formdata = e.detail.value;
     if(formdata.tel==""){
       this.showMessage('请输入手机号码');
-    } else if (formdata.pass == ""){
+    } else if (formdata.type == 0) {
+      this.showMessage('请选择身份');
+    }else if (formdata.pass == ""){
       this.showMessage('请输入密码');
     } else if (formdata.provingcode==''){
       this.showMessage('请输入验证码');
