@@ -1,27 +1,26 @@
-// pages/life/home/home.js
+// pages/education/classmsg/classmsg.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show: false,//控制下拉列表的显示隐藏，false隐藏、true显示
-    selectData: ['新天地幼儿园', '上海市第一人民小学', '红星幼儿园'],//下拉列表的数据
-    index: 0//选择的下拉列表下标
+    navbar: [{ classnumb: "全部", name: "" }, { classnumb: "三年1班", name: "小泽" }, { classnumb: "学前三班", name: "leo" }],
+    //count:[0,2,3],                                  //记录不同状态记录的数量
+    currentTab: 3,
+    type:1 //1老师/0家长
   },
-  // 点击下拉显示框
-  selectTap() {
-    this.setData({
-      show: !this.data.show
-    });
+  navbarTap: function (e) {
+    var that = this;
+    that.setData({
+      currentTab: e.currentTarget.dataset.idx,
+      TypeItem: that.data.navbar[that.data.currentTab]
+    })
   },
-  // 点击下拉列表
-  optionTap(e) {
-    let Index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
-    this.setData({
-      index: Index,
-      show: !this.data.show
-    });
+  toaddclassmsg:function(){
+    wx.navigateTo({
+      url: './addclassmsg/addclassmsg',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

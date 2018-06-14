@@ -1,4 +1,4 @@
-// pages/life/home/home.js
+// pages/education/glory/glory.js
 Page({
 
   /**
@@ -23,6 +23,7 @@ Page({
       show: !this.data.show
     });
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

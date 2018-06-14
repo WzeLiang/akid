@@ -1,0 +1,25 @@
+<view class='releasehomework'>
+  <form>
+      <view class='form-item'>
+        <view>班级</view>
+        <view class='class-numb'>五年(2)班</view>
+      </view>
+       <view class='form-item'>
+        <view>日期</view>
+        <picker mode="selector" mode='date' placeholder-class="input-placeholder" range="" name='date' value="{{date}}" bindchange="dateselect">
+            <text>{{date}}</text>
+       </picker>
+      </view>
+      <view class='form-item'>
+        <view>科目</view>
+        <picker mode="selector" placeholder-class="input-placeholder" range="{{array}}" name='type' value="{{subjectindex}}" bindchange="listenerPickerSelected">
+            <text>{{array[subjectindex]}}</text>
+       </picker>
+      </view>
+      <view class='homework-info'>
+        <view>作业内容</view>
+        <textarea placeholder='请输入作业内容'></textarea>
+      </view>
+      <button formType="submit" class='sub-releasehomework sub-button'>发布</button>
+  </form>
+</view>

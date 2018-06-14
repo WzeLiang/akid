@@ -1,0 +1,31 @@
+<view class='teachway'>
+    <view class='list'>
+        <view class='item'>
+            <view class='item-date text-center'>
+                <text>14:05</text>
+            </view>
+            <view class='item-box'>
+                <view class='img'>
+                    <image src='../../../images/life/teach.jpg'  ></image>
+                </view>
+                <view class='content'>
+                    用户不再通过Facebook获取新闻 转而通过WhatsApp
+                </view>
+            </view>
+        </view>
+
+         <view class='item'>
+            <view class='item-date text-center'>
+                <text>14:05</text>
+            </view>
+            <view class='item-box'>
+                <view class='img'>
+                    <image src='../../../images/life/teach.jpg'  ></image>
+                </view>
+                <view class='content'>
+                    用户不再通过Facebook获取新闻 转而通过WhatsApp
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

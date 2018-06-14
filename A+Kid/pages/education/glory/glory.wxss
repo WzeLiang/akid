@@ -1,4 +1,4 @@
-/* pages/life/home/home.wxss */
+/* pages/education/glory/glory.wxss */
 .select_box{
   text-align: center;
   background: #fff;
@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   padding: 0 20rpx;
+  background: rgb(239, 249, 228);
 }
 .select_text{
   font-size: 30rpx;
@@ -54,19 +55,39 @@
   border-bottom: 1px solid #efefef;
   padding: 12rpx;
 }
-.life{
+page{
+  background: rgb(239, 249, 228);
+}
+.out-box{
 
 }
-.box{
+.out-box .img image{
+  width: 100%;
+  height: 130rpx;
+} 
+.out-box .time{
+  color: rgb(102, 102, 102);
+  font-size: 28rpx;
+} 
+.out-box .list{
   padding-left: 30rpx;
   padding-top: 30rpx;
+  padding-bottom: 30rpx;
 }
-.box .item{
-  width: 210rpx;
-  margin: 0 30rpx 30rpx 0;
+.out-box .list .item{
   display: inline-block;
+  width: 114rpx;
+  margin-bottom: 30rpx;
+  margin-right: 30rpx;
 }
-image{
-  width: 100%;
-  height: 350rpx;
+.out-box .list .item .img image{
+  border-radius: 57rpx;
+}
+.out-box .list .item .name{
+  margin: 5rpx 0 5rpx;
+  font-size: 28rpx;
+}
+.out-box .list .item .classnumb{
+  font-size: 22rpx;
+  color: rgb(102, 102, 102);
 }

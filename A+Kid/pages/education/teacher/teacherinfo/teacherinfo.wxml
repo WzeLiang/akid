@@ -1,0 +1,10 @@
+<view class='teacherinfo'>
+    <view class='img text-center'>
+        <image src='../../../../images/education/teacher.jpg'></image>
+    </view>
+      <view class='name text-center'>福原爱</view>
+      <view class='duties text-center'>校长</view>
+      <view class='explain'>
+          朱宏钧，女，央视著名主持人白岩松的妻子。她是白岩松在中央人民广播电台工作时的同事。职务：现任经济之声编辑部主任，两人结婚十几年来一直相亲相爱相敬如宾，是大家公认的一对模范夫妻。两人育有一子，名叫白清扬。
+      </view>
+</view>

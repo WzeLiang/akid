@@ -1,0 +1,89 @@
+/*圆点数字标注*/
+.notice {
+    width:28rpx;
+    height:28rpx;
+    color:#fff;
+    text-align:center;
+    background-color:#ec9e14;
+    border-radius:50%;
+    position:absolute;
+    float:left;
+   /* margin-top: 8rpx;*/
+   top:5rpx;
+    font-size: 15rpx;
+    right:30rpx;
+    line-height:30rpx; }
+
+/*顶部导航样式*/
+  .navbar{ 
+ flex: none; 
+ display: flex; 
+ border-top: 1px solid rgb(229, 229, 229);
+  border-bottom: 1px solid rgb(229, 229, 229);
+ margin-top: 20rpx;
+ z-index: 50; 
+} 
+.navbar .item{ 
+ border-right: 1rpx solid rgb(229, 229, 229);
+ position: relative; 
+ flex: auto; 
+ text-align: center;
+ line-height: 60rpx; 
+ font-size: 34rpx;
+ font-family: Microsoft YaHei;
+ padding: 10rpx 0;
+} 
+.navbar .item.active .nav-classnumb{
+  color:rgb(119, 195, 41);
+}
+.navbar .item .nav-name{
+  font-size: 30rpx;
+  color:rgb(136, 136, 136);
+
+}
+.navbar .item:last-child{
+  border: none;
+}
+/* .navbar .item.active{ 
+color:rgb(119, 195, 41);
+}  */
+.navbar .item.active:after{ 
+ content: ""; 
+ display: block; 
+ position: absolute; 
+ bottom: 0; 
+ left: 0; 
+ right: 0; 
+ height: 6rpx; 
+ background: rgb(119, 195, 41);
+ font-size: 24rpx;
+ color: #666666;
+ font-family: Microsoft YaHei;
+}
+.msg-list{
+  padding:0 0 30rpx 0;
+}
+.msg-item{
+  padding:30rpx;
+  border-bottom: solid 1rpx rgb(229, 229, 229); 
+}
+.item-title{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.item-title .title-class{
+  font-size: 38rpx;
+}
+.item-title .title-class text{
+  margin-left: 10rpx;
+  font-size: 32rpx;
+}
+.item-title .title-time{
+  font-size: 30rpx;
+}
+.item-info{
+  font-size: 32rpx;
+  letter-spacing:.5rpx;
+  line-height:50rpx;
+}

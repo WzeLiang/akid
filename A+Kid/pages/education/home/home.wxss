@@ -51,21 +51,22 @@
   justify-content: space-between;
   margin-bottom: 20rpx;
 }
+.msg-content .content-item .item-title .title-classnumb{
+    font-size: 37rpx;
+}
 .msg-content .content-item .item-title .title-date{
  font-size: 30rpx;
- color: #888888;
  vertical-align: text-bottom;
  line-height: 50rpx;
 }
 .msg-content .content-item .item-info{
   font-size: 30rpx;
-  color: rgb(128, 128, 128);
-  line-height: 40rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  letter-spacing: 2rpx;
+  letter-spacing:.2rpx;
+  line-height:45rpx;
 }
 .unread{
   position: relative;

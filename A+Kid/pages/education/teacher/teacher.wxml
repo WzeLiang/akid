@@ -1,0 +1,51 @@
+<view class='teacher'>
+
+    <view class='select_box'>
+        <view class='select' catchtap='selectTap'>
+            <text class='select_text'>{{selectData[index]}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image>         
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*84):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+        </view>
+  </view>
+  <view class='teacher-box'>
+      <view class="item">
+          <navigator url='./teacherinfo/teacherinfo'>
+              <view class='image'>
+                 <image src='../../../images/education/teacher.jpg'></image>
+              </view>
+              <view class='name'>福原爱</view>
+              <view class='duties'>校长</view>
+          </navigator>
+      </view>
+      <view class="item">
+          <view class='image'>
+              <image src='../../../images/education/teacher.jpg'></image>
+          </view>
+          <view class='name'>福原爱</view>
+          <view class='duties'>校长</view>
+      </view>
+      <view class="item">
+          <view class='image'>
+              <image src='../../../images/education/teacher.jpg'></image>
+          </view>
+          <view class='name'>福原爱</view>
+          <view class='duties'>校长</view>
+      </view>
+      <view class="item">
+          <view class='image'>
+              <image src='../../../images/education/teacher.jpg'></image>
+          </view>
+          <view class='name'>福原爱</view>
+          <view class='duties'>校长</view>
+      </view>
+      <view class="item">
+          <view class='image'>
+              <image src='../../../images/education/teacher.jpg'></image>
+          </view>
+          <view class='name'>福原爱</view>
+          <view class='duties'>校长</view>
+      </view>
+  </view>
+</view>

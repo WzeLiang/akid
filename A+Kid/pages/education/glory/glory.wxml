@@ -1,0 +1,46 @@
+<view class="glory">
+     <view class='select_box'>
+        <view class='select' catchtap='selectTap'>
+            <text class='select_text'>{{selectData[index]}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image>         
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*84):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+        </view>
+     </view>
+     <view class='student-box out-box'>
+        <view class='img'>
+            <image src='../../../images/education/glory-student.png'></image>
+        </view>
+        <view class='time text-center'>2018-11-20</view>
+        <view class='student-list list'>
+            <view class='student-item item'>
+                <view class='img'>
+                  <image src='../../../images/education/teacher.jpg'></image>
+                </view>
+                <view class='name text-center'>福原爱</view>
+                <view class='classnumb text-center'>五年二班</view>
+            </view>
+            
+             
+        </view>
+     </view>
+
+     <view class='teacher-box out-box'>
+        <view class='img'>
+            <image src='../../../images/education/glory-teacher.png'></image>
+        </view>
+        <view class='time text-center'>2018-11-20</view>
+        <view class='teacher-list list'>
+            <view class='teacher-item item'>
+                <view class='img'>
+                  <image src='../../../images/education/teacher.jpg'></image>
+                </view>
+                <view class='name text-center'>福原爱</view>
+                <view class='classnumb text-center'>五年二班</view>
+            </view>
+            
+             
+        </view>
+     </view>
+</view>
