@@ -1,0 +1,19 @@
+<view class='dynamic'>
+  <view class='page-list'>
+      <view class='page-item'>
+          <view class='item-title text-green'>小英雄幼儿园</view>
+          <view class='item-content text-black'>
+               朱宏钧，女，央视著名主持人白岩松的妻子。她是白岩松在中央人民广播电台工作时的同事。职务：现任经济之声编辑部主任，两人结婚十几年来一直相亲相爱相敬如宾，是大家公认的一对模范夫妻。两人育有一子，名叫白清扬。
+          </view>
+          <view class='total text-green'>全部</view>
+          <view class='item-img'>
+              <image src='../../../images/life/life-item1.jpg'></image>
+              <image src='../../../images/life/life-item2.jpg'></image>
+             <image src='../../../images/life/life-item3.jpg'></image>
+             <image src='../../../images/life/life-item3.jpg'></image>
+             <image src='../../../images/life/life-item3.jpg'></image>
+          </view>
+          <view class='item-date'>2018.3.27 19:00</view>
+      </view>
+  </view> 
+</view>

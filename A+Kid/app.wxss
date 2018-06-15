@@ -66,9 +66,21 @@
 .text-center{
   text-align: center;
 }
+.text-black{
+  color: rgb(51, 51, 51);
+}
 .text-gray{
   color: rgb(102, 102, 102);
 }
+.text-green{
+  color:rgb(118, 168, 66);
+}
 .text-lightgray{
   color:rgb(198, 198, 198);
+}
+.back-green{
+  background: rgb(163,221,103);
+}
+.icon-gray{
+  color: rgb(153, 153, 153);
 }

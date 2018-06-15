@@ -6,10 +6,10 @@ page{
 
 }
 .list{
-  padding: 40rpx;
+  padding :0 40rpx 40rpx 40rpx;
 }
 .item{
-  margin: 80rpx 0 60rpx;
+  margin: 60rpx 0 60rpx;
   
 }
 .item-date text{

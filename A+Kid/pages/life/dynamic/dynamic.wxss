@@ -1,0 +1,41 @@
+/* pages/life/dynamic/dynamic.wxss */
+.dynamic{
+  padding: 30rpx;
+}
+.page-list{
+
+}
+.page-item{
+  padding:30rpx 0;
+ border-bottom:solid 1rpx rgb(229, 229, 229);
+}
+.page-item .item-title{
+  font-size: 38rpx;
+
+
+}
+.page-item .item-content{
+  margin:15rpx 0;
+  letter-spacing:.2rpx;
+  font-size:32rpx;
+  line-height:48rpx;
+}
+.page-item .total{
+  font-size: 32rpx;
+}
+.page-item .item-img{
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap:  wrap ;
+  align-content: flex-start 
+}
+.page-item .item-img::after {
+  content: "";
+  width: 220px;
+}
+.page-item .item-img image{
+  height: 220rpx;
+  width: 220rpx;
+
+}
