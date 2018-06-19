@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/enroll/login/login",
     "pages/education/home/home",
     "pages/education/homework/homework",
     "pages/education/classmsg/classmsg",
@@ -9,15 +10,22 @@
     "pages/education/glory/glory",
     "pages/education/syllabus/syllabus",
     "pages/education/teacher/teacherinfo/teacherinfo",
+    "pages/education/live/live",
+    "pages/education/live/liveinfo/liveinfo",
     "pages/life/home/home",
     "pages/life/schoolinfo/schoolinfo",
     "pages/life/teachway/teachway",
     "pages/life/dynamic/dynamic",
     
     "pages/personal/home/home",
+    "pages/personal/addrelation/addrelation",
+    "pages/personal/relastudentinfo/relastudentinfo",
+    "pages/personal/score/score",
+    "pages/personal/appointment/appointment",
     "pages/enroll/register/register",
-    "pages/enroll/login/login",
+    
     "pages/enroll/forget/forget",
+
     "pages/index/index",
     "pages/logs/logs"
   ],

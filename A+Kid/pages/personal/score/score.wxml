@@ -1,0 +1,34 @@
+<view class="score">
+  <form class='score-form' bindsubmit="scoresubmit">
+   
+    <view class='form-item'>
+      <view class='text-gray'>教师</view>
+      <picker mode="selector" placeholder-class="input-placeholder" range="{{teacherarray}}" name='school' value="{{teacherindex}}" bindchange="teacherSelected">
+        <text>{{teacherarray[teacherindex]}}</text>
+      </picker>
+    </view>
+    <view class='form-item'>
+        <view class='text-gray'>学生</view>
+        <picker mode="selector" placeholder-class="input-placeholder" range="{{studentarray}}" name='parent' value="{{studentindex}}" bindchange="studentSelected">
+          <text>{{studentarray[studentindex]}}</text>
+        </picker>
+    </view>
+     <view class='form-item'>
+        <view class='text-gray'>学周</view>
+            <view class='data'>3.25-3.31</view>
+        
+    </view>
+    <view class='score-info'>
+        <view  class='text-gray'>评价内容</view>
+        <textarea placeholder='请输入评价内容'></textarea>
+    </view>
+
+   <view class='score-fraction'>
+        <view  class='text-gray'>评分</view>
+        
+    </view>
+
+    <button formType="submit" class='sub-forget sub-button'>提交</button>
+  </form>
+</view>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

@@ -1,0 +1,21 @@
+/* pages/personal/relastudentinfo/relastudentinfo.wxss */
+.relastudentinfo{
+  padding: 30rpx;
+}
+.student-msg{
+
+}
+.student-msg .msg-img .img image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+}
+.student-msg .msg-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid rgb(229, 229, 229);
+}
+.cancel-btn{
+  margin: 50rpx 0;
+}

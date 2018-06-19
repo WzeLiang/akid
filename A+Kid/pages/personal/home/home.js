@@ -5,12 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      studentlist:[
+        {id:1, url: "../../../images/education/teacher.jpg", name:"周大生",classnumb:"五年二班"},
+        { id: 2, url: "../../../images/education/teacher.jpg", name: "周小生", classnumb: "学前三班" },
+      ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  toscore:function(e){
+    wx.navigateTo({
+      url: '../score/score',
+    })
+  },
+  toappointment:function(e){
+    wx.navigateTo({
+      url: '../appointment/appointment',
+    })
+  },
   onLoad: function (options) {
   
   },

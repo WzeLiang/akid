@@ -18,6 +18,19 @@
    border: none;
    color: white;
 }
+.dis-button{
+  margin-top: 80rpx;
+   background: white;
+   width: 600rpx;
+   height: 100rpx;
+   line-height: 100rpx;
+   border-radius: 50rpx;
+   box-shadow: #dddddd 0px 0px 60px; 
+   border: 1rpx white solid;
+   color: red;
+   outline: none;
+   margin: 0 auto;
+}
 .input-placeholder{
   color: rgb(203, 203, 203)
 }
@@ -74,6 +87,9 @@
 }
 .text-green{
   color:rgb(118, 168, 66);
+}
+.text-blue{
+  color: rgb(67, 154, 228);
 }
 .text-lightgray{
   color:rgb(198, 198, 198);

@@ -1,0 +1,30 @@
+/* pages/personal/addrelation/addrelation.wxss */
+
+.score{
+  padding: 30rpx;
+}
+.form-item{
+  border-bottom: 1rpx solid rgb(229,229,229);
+  padding: 25rpx 0;
+  display: flex;
+  letter-spacing: 2rpx;
+  justify-content:space-between;
+}
+.form-item input{
+  direction: rtl;
+}
+.score-info,.score-fraction{
+  margin-top: 40rpx;
+}
+.score-info textarea{
+  border: 1rpx solid rgb(229,229,229);
+  margin-top:20rpx;
+  width: 100%; 
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+
+.sub-forget{
+   
+}

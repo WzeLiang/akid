@@ -9,10 +9,8 @@
   </swiper>
   <view class='pro-box'>
       <view class='pro-item'>
-         <navigator url='../../enroll/register/register'>
-             <image src='../../../images/education/icon.gif'></image>
-             <view>考勤</view>
-         </navigator>
+            <image src='../../../images/education/icon.gif'></image>
+            <view>考勤</view>
       </view>
       <view class='pro-item'>
          <navigator url='../../education/syllabus/syllabus'>
@@ -34,11 +32,13 @@
       </view>
       <view class='pro-item'>
           <image src='../../../images/education/icon.gif'></image>
-        <view>在线请假</view>
+          <view>在线请假</view>
        </view>
       <view class='pro-item'>
-          <image src='../../../images/education/icon.gif'></image>
-          <view>校园直播</view>
+         <navigator url='../live/live'>
+             <image src='../../../images/education/icon.gif'></image>
+             <view>校园直播</view>
+         </navigator>
       </view>
       <view class='pro-item'>
           <navigator url='../glory/glory'>

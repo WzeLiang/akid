@@ -1,13 +1,21 @@
-// pages/enroll/login/login.js
+// pages/personal/score/score.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    teacherarray: ['请选择>', '周老师', '王老师'],
+    studentarray: ['请选择>', '周大生', '周小生'],
+    teacherindex: 0,
+    studentindex: 0,
     showMessage: false,
     messageContent: '',
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
   showMessage: function (text) {
     var that = this
     that.setData({
@@ -21,18 +29,32 @@ Page({
       })
     }, 3000)
   },
-  loginsubmit:function(e){
+  teacherSelected: function (e) {
+    this.setData({
+      teacherindex: e.detail.value
+    });
+    console.log(this.data.teacherindex)
+  },
+  studentSelected: function (e) {
+    this.setData({
+      studentindex: e.detail.value
+    });
+    console.log(this.data.studentindex)
+  },
+
+  addrelationsubmit: function (e) {
     console.log(e.detail.value);
     var formdata = e.detail.value;
-    if(formdata.tel==''){
-      this.showMessage('请输入手机号');
-    } else if (formdata.pass == ''){
-      this.showMessage('请输入密码');
-    }else{
-      //这里请求接口
-    wx.switchTab({
-      url: '../../education/home/home',
-    })
+    if (formdata.name == "") {
+      this.showMessage('请输入学生姓名');
+    } else if (formdata.code == '') {
+      this.showMessage('请输入学生编号');
+    } else if (formdata.school == 0) {
+      this.showMessage('请选择学校');
+    } else if (formdata.parent == 0) {
+      this.showMessage('请选择关系');
+    } else {
+      //调用接口
     }
   },
   /**

@@ -14,4 +14,6 @@
   margin-top:20rpx;
   width: 100%; 
   padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
 }
