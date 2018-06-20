@@ -1,27 +1,49 @@
 // pages/education/classmsg/classmsg.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    navbar: [{ classnumb: "全部", name: "" }, { classnumb: "三年1班", name: "小泽" }, { classnumb: "学前三班", name: "leo" }],
-    //count:[0,2,3],                                  //记录不同状态记录的数量
-    currentTab: 3,
-    type:1 //1老师/0家长
+    currentActive: 0,
+    tabnavlist: [
+      { name: "全部", classnumb: "" },
+      { name: "吴亦凡", classnumb: "五年二班" },
+      { name: "张小胖", classnumb: "学前三班" },
+    ],
+    usertype: app.globalData.usertype,
+    tabcontentlist: [
+      [
+        { studentname: "吴亦凡", classnumb: "五年二班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },
+        { studentname: "张小胖", classnumb: "学前三班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },
+      ],
+      [
+        { studentname: "吴亦凡", classnumb: "五年二班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },     
+      ],
+      [
+        { studentname: "张小胖", classnumb: "学前三班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },
+      ],
+    ],
+    teachercontentlist: [
+      [
+        { studentname: "吴亦凡", classnumb: "五年二班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },
+        { studentname: "张小胖", classnumb: "学前三班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },
+      ],
+      
+    ],
   },
-  navbarTap: function (e) {
-    var that = this;
-    that.setData({
-      currentTab: e.currentTarget.dataset.idx,
-      TypeItem: that.data.navbar[that.data.currentTab]
+   testclick:function(e){
+    console.log(e)
+    this.setData({
+      currentActive: e.currentTarget.dataset.current
     })
   },
-  toaddclassmsg:function(){
-    wx.navigateTo({
-      url: './addclassmsg/addclassmsg',
-    })
-  },
+   toaddclassmsg:function(e){
+     wx.navigateTo({
+       url: './addclassmsg/addclassmsg',
+     })
+   },
   /**
    * 生命周期函数--监听页面加载
    */

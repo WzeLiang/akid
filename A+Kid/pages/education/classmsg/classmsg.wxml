@@ -1,56 +1,46 @@
-<view wx-if="{{type==0}}">
-        <!--导航菜单-->
-    <view class="navbar" style=" z-index:50">
-      <!--循环-->
-        <view wx:for="{{navbar}}" data-idx="{{index}}" wx:key="unique" class="item {{currentTab==index ? 'active' : ''}}" bindtap="navbarTap">
-            <view class="notice" wx:if="{{count[index]>0}}">{{count[index]}}</view>
-            <view class='nav-classnumb' style='line-height:{{item.name==""?100:50}}rpx;'> {{item.classnumb}}</view>
-            <view class='nav-name' wx-if="{{item.name!==''}}" > {{item.name}}</view>
-          <!--<text  bindtap="navbarTap">{{item}}</text>-->
-        </view>
+<view class='classmsg'>
+  <view wx:if="{{usertype==0}}">
+    <view class='tabnav'>
+      <view class='tab-item {{currentActive==index?"active":""}}' wx:for="{{tabnavlist}}" wx:key="" bindtap='testclick' data-current="{{index}}">
+        {{item.name}}
+        <view class='item-classnumb'>{{item.classnumb}}</view>
+      </view>
     </view>
 
-    <!--半月维保-->
-    <view hidden="{{currentTab !== 0}}" id="one">
-        <view class='msg-list'>
-            <view class='msg-item'>
-                <view class='item-title'>
-                    <view class="title-class">五年一班<text class='text-gray'>(吴彦祖)</text></view>
-                    <view class="title-time text-lightgray">2018.03.28 19:00</view>
-                </view>
-                <view class='item-info text-gray'>
-                    开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解
-                </view>
+    <view wx:for="{{tabcontentlist}}" class='tab-content {{currentActive==index?"show":"hidden"}}' wx:key="">
+      <!-- <view>索引{{index}}</view> -->
+      <view class='content-item' wx:for="{{item}}" wx:for-item="items" wx:key="">
+        <view class='item-msg text-black'>
+          <view class='item-title'>
+            <view class='title-class'>{{items.classnumb}}
+              <text class='head-studentname text-gray'>({{items.studentname}})</text>
             </view>
+            <view class='title-time text-lightgray'>{{items.msgdate}}</view>
+          </view>
+          <view class='msg-info'>{{items.content}}</view>
         </view>
+      </view>
     </view>
+  </view>
 
-    <!--月度维保-->
-    <view hidden="{{currentTab !== 1}}" id="one">
-      2222
-    </view>
-
-    <!--半年维保-->
-    <view hidden="{{currentTab !== 2}}" id="one">
-    啊啊啊
-    </view>
-</view>
-
-
-<!--老师 -->
-<view wx-if="{{type==1}}">
-  <view class='msg-list'>
-        <view class='msg-item'>
+  <!--老师 -->
+    <view wx-if="{{usertype==1}}">
+        <view wx:for="{{teachercontentlist}}" class='tab-content' >
+        <!-- <view>索引{{index}}</view> -->
+        <view class='content-item' wx:for="{{item}}" wx:for-item="items" wx:key="">
+          <view class='item-msg text-black'>
             <view class='item-title'>
-                <view class="title-class">五年一班</view>
-                <view class="title-time text-lightgray">2018.03.28 19:00</view>
+              <view class='title-class'>{{items.classnumb}}
+                
+              </view>
+              <view class='title-time text-lightgray'>{{items.msgdate}}</view>
             </view>
-            <view class='item-info text-gray'>
-                开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解
-            </view>
+            <view class='msg-info'>{{items.content}}</view>
+          </view>
         </view>
+      </view>
+      <view class='addclassmsg text-center'>
+        <button class='sub-button' bindtap='toaddclassmsg'>发布通知</button>
+      </view>
     </view>
-<view class='addclassmsg text-center'>
-  <button class='sub-button' bindtap='toaddclassmsg'>发布通知</button>
-</view>
 </view>

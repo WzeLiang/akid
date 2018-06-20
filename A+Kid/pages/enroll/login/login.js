@@ -23,17 +23,17 @@ Page({
   },
   loginsubmit:function(e){
     console.log(e.detail.value);
-    var formdata = e.detail.value;
-    if(formdata.tel==''){
-      this.showMessage('请输入手机号');
-    } else if (formdata.pass == ''){
-      this.showMessage('请输入密码');
-    }else{
+    // var formdata = e.detail.value;
+    // if(formdata.tel==''){
+    //   this.showMessage('请输入手机号');
+    // } else if (formdata.pass == ''){
+    //   this.showMessage('请输入密码');
+    // }else{
       //这里请求接口
     wx.switchTab({
       url: '../../education/home/home',
     })
-    }
+    // }
   },
   /**
    * 生命周期函数--监听页面加载

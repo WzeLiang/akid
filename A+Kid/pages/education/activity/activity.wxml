@@ -1,0 +1,47 @@
+<view class="activity">
+<!--家长  -->
+    <view wx:if="{{usertype==0}}" class='tabnav'>
+        <view class='tab-item {{currentActive==index?"active":""}}' wx:for="{{tabnavlist0}}" wx:key="" bindtap='testclick' data-current="{{index}}">{{item}}</view>
+    </view>
+    <!--教师  -->
+    <view wx:if="{{usertype==1}}" class='tabnav'>
+        <view class='tab-item {{currentActive==index?"active":""}}' wx:for="{{tabnavlist1}}" wx:key="" bindtap='testclick' data-current="{{index}}">{{item}}</view>
+    </view>
+      <!--家长  -->
+      <view wx:if="{{usertype==0}}" wx:for="{{tabcontentlist0}}" class='tab-content {{currentActive==index?"show":"hidden"}}' wx:key="">
+          <!-- <view>索引{{index}}</view> -->
+          <view class='content-item' wx:for="{{item}}" wx:for-item="items" wx:key="">
+             <view class='item-msg text-black'>
+                 <view class='msg-title'>{{items.title}}</view>
+                 <view class='msg-activitydate text-gray'>活动时间：{{items.activitydate}}</view>
+                 <view class='msg-joindata text-gray'>报名时间：{{items.joindata}}</view>
+                 <view class='msg-member text-gray'>参与对象：{{items.member}}</view>
+             </view>
+             <view class='item-operate'>
+                <view wx-if="{{!items.username && items.status==1 }}" class='operate-btn'>
+                    <navigator url='./joinactivity/joinactivity?title={{items.title}}'>去报名</navigator>
+                </view>
+                 <view wx-if="{{items.username && items.status==1}}" class='operate-username'>{{items.username}}</view>
+                  <view wx-if="{{items.status==0}}" class='operate-stop  text-gray'>已结束</view>
+             </view>
+          </view>
+      </view>
+      <!--老师  -->
+       <view wx:if="{{usertype==1}}" wx:for="{{tabcontentlist1}}" class='tab-content {{currentActive==index?"show":"hidden"}}' wx:key="">
+          <!-- <view>索引{{index}}</view> -->
+          <view class='content-item' wx:for="{{item}}" wx:for-item="items" wx:key="">
+             <view class='item-msg text-black'>
+                 <view class='msg-title'>{{items.title}}</view>
+                 <view class='msg-activitydate text-gray'>活动时间：{{items.activitydate}}</view>
+                 <view class='msg-joindata text-gray'>报名时间：{{items.joindata}}</view>
+                 <view class='msg-member text-gray'>参与对象：{{items.member}}</view>
+             </view>
+             <view class='item-operate'>
+                <view class='operate-btn'>
+                    <navigator url='./userlist/userlist?title={{items.title}}&date={{items.activitydate}}'>查看名单</navigator>
+                </view>
+                 
+             </view>
+          </view>
+      </view>
+</view>

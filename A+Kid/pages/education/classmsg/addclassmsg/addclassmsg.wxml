@@ -1,2 +1,15 @@
-<!--pages/education/classmsg/addclassmsg/addclassmsg.wxml-->
-<text>pages/education/classmsg/addclassmsg/addclassmsg.wxml</text>
+<view class='addclassmsg'>
+  <form>
+      <view class='form-item'>
+        <view  class='text-gray'>科目</view>
+        <picker mode="selector" class='text-black' placeholder-class="input-placeholder" range="{{classarray}}" name='type' value="{{classindex}}" bindchange="listenerPickerSelected">
+            <text>{{classarray[classindex]}}</text>
+       </picker>
+      </view>
+      <view class='classmsg-info'>
+        <view  class='text-gray'>通知内容</view>
+        <textarea placeholder='请输入作业内容'></textarea>
+      </view>
+      <button formType="submit" class='sub-releasehomework sub-button'>发布</button>
+  </form>
+</view>

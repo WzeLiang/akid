@@ -1,35 +1,33 @@
-// pages/education/classmsg/addclassmsg/addclassmsg.js
+// pages/education/activity/joinactivity/joinactivity.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classarray: ['请选择班级', '五年二班', '学前三班',],
-    classindex: 0,
-    date: new Date()
+      title:"",
+      items: [
+        { name: 'child1', value: '张小三', checked: 'true' , classnumb:"五年三班"},
+        { name: 'child2', value: '张大三',  classnumb:"学前三班" },
+       
+      ]
   },
-  listenerPickerSelected: function (e) {
-    //改变index值，通过setData()方法重绘界面
-    this.setData({
-      classindex: e.detail.value
-    });
-    console.log(this.data.classindex)
-  },
-  dateselect: function (e) {
-    //改变index值，通过setData()方法重绘界面
-    this.setData({
-      date: e.detail.value
-    });
-    console.log(this.data.date)
-  }, 
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  checkboxChange: function (e) {
+    console.log(e.detail.value)
   },
-
+  onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      title: options.title
+    })
+  },
+  joinactivitysubmit:function(e){
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

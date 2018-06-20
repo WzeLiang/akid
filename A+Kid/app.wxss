@@ -85,8 +85,11 @@
 .text-gray{
   color: rgb(102, 102, 102);
 }
+.text-white{
+  color: white;
+}
 .text-green{
-  color:rgb(118, 168, 66);
+  color:rgb(119, 195, 41);
 }
 .text-blue{
   color: rgb(67, 154, 228);
@@ -99,4 +102,10 @@
 }
 .icon-gray{
   color: rgb(153, 153, 153);
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
 }

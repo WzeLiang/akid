@@ -1,0 +1,21 @@
+<view class="userlist">
+    <view class='head text-white'>
+        <view class='head-left'>
+            <view class='activity-name'>{{activitytitle}}</view>
+            <view class='activity-date'>活动时间:{{activitydate}}</view>
+        </view>
+        <view class='head-right'>
+            <view>报名人数：<text>10</text></view>
+        </view>
+    </view>
+    <view class='userlist-box'>
+        <view wx:for="{{activityuserlist}}" wx:key="" class='user-item text-black'>
+            <view class='item-student'>
+              {{item.studentname}}<text class='text-gray classnumb'>{{item.classnumb}}</text>
+            </view>
+            <view class='item-parent'>
+                家长:{{item.parentnamne}}
+            </view>
+        </view>
+    </view>
+</view>

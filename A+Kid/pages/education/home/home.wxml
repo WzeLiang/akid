@@ -47,8 +47,10 @@
           </navigator>
       </view>
       <view class='pro-item'>
-          <image src='../../../images/education/icon.gif'></image>
-          <view>活动报名</view>
+         <navigator url='../activity/activity'>
+             <image src='../../../images/education/icon.gif'></image>
+             <view>活动报名</view>
+         </navigator> 
       </view>
   </view>
   <view class='class-msg'>
