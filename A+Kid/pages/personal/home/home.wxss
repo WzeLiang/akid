@@ -61,10 +61,11 @@
 .operate{
   border-top: 1rpx solid rgb(229, 229, 229);
   margin-top: 30rpx;
+  font-size: 32rpx;
 }
 .operate .score,.operate .appointment{
   display: flex;
   justify-content: space-between;
-  padding: 15rpx 30rpx;
+  padding: 20rpx 30rpx;
   border-bottom: 1rpx solid rgb(229, 229, 229);
 }

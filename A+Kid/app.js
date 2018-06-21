@@ -36,7 +36,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    usertype:1//1老师，0家长
+    usertype:0//1老师，0家长
 
   }
 })

@@ -9,46 +9,46 @@
   </swiper>
   <view class='pro-box'>
       <view class='pro-item'>
-            <image src='../../../images/education/icon.gif'></image>
+            <image src='../../../images/education/attence.png'></image>
             <view>考勤</view>
       </view>
       <view class='pro-item'>
          <navigator url='../../education/syllabus/syllabus'>
-             <image src='../../../images/education/icon.gif'></image>
+             <image src='../../../images/education/syllabus.png'></image>
              <view>班级课表</view>
          </navigator>
       </view>
       <view class='pro-item'>
          <navigator url='../homework/homework'>
-             <image src='../../../images/education/icon.gif'></image>
+             <image src='../../../images/education/homework.png'></image>
              <view>家庭作业</view>
          </navigator>
       </view>
       <view class='pro-item'>
          <navigator url='../teacher/teacher'>
-             <image src='../../../images/education/icon.gif'></image>
+             <image src='../../../images/education/teacher.png'></image>
              <view>教师风采</view>
          </navigator> 
       </view>
       <view class='pro-item'>
-          <image src='../../../images/education/icon.gif'></image>
+          <image src='../../../images/education/askleave.png'></image>
           <view>在线请假</view>
        </view>
       <view class='pro-item'>
          <navigator url='../live/live'>
-             <image src='../../../images/education/icon.gif'></image>
+             <image src='../../../images/education/live.png'></image>
              <view>校园直播</view>
          </navigator>
       </view>
       <view class='pro-item'>
           <navigator url='../glory/glory'>
-              <image src='../../../images/education/icon.gif'></image>
+              <image src='../../../images/education/glory.png'></image>
               <view>光荣榜</view>
           </navigator>
       </view>
       <view class='pro-item'>
          <navigator url='../activity/activity'>
-             <image src='../../../images/education/icon.gif'></image>
+             <image src='../../../images/education/activity.png'></image>
              <view>活动报名</view>
          </navigator> 
       </view>

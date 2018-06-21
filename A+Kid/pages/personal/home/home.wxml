@@ -37,7 +37,7 @@
             </block>
         </view>
         <view class='add-box text-center'>
-            <navigator url='../addrelation/addrelation' open-type="redirect">
+            <navigator url='../addrelation/addrelation'>
                  <view class="add-img">
                     <image src='../../../images/add.png'></image>
                 </view>
@@ -45,7 +45,7 @@
             </navigator>
         </view>
     </view>
-    <view class='operate'>
+    <view class='operate text-black'>
         <view class='score' bindtap='toscore'>
             <view>我要评分</view>
             <view>></view>

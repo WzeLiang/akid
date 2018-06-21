@@ -60,13 +60,13 @@
  line-height: 50rpx;
 }
 .msg-content .content-item .item-info{
-  font-size: 30rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  letter-spacing:.2rpx;
-  line-height:45rpx;
+   font-size: 32rpx;
+  letter-spacing:.5rpx;
+  line-height:50rpx;
 }
 .unread{
   position: relative;
