@@ -8,7 +8,7 @@
       </view>
       <view class='classmsg-info'>
         <view  class='text-gray'>通知内容</view>
-        <textarea placeholder='请输入作业内容'></textarea>
+        <textarea placeholder='请输入通知内容'></textarea>
       </view>
       <button formType="submit" class='sub-releasehomework sub-button'>发布</button>
   </form>

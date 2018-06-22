@@ -33,8 +33,10 @@
          </navigator> 
       </view>
       <view class='pro-item'>
-          <image src='../../../images/education/askleave.png'></image>
-          <view>在线请假</view>
+         <navigator url='../askforleave/askforleave'>
+             <image src='../../../images/education/askleave.png'></image>
+             <view>在线请假</view>
+         </navigator>
        </view>
       <view class='pro-item'>
          <navigator url='../live/live'>

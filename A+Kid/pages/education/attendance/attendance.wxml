@@ -25,11 +25,27 @@
                      <image src='../../../images/icon-right.png'></image>
                 </view>
             </view>
+             <view class='content-info text-black text-center'>
+             
+               <view class='head-date tr-item'  >
+                  
+                        <view wx:for="{{weeklist}}" class='th-item text-green' style='height:100%;'> 
+                           <view>{{item}}</view>
+                        </view>
+                        
+                </view>
+
+                <view wx:for="{{subjectlist}}" class='tr-item'>
+                   <view class='th-item'>{{item.index}}</view>
+                    <view wx:for="{{item.subjects}}" wx:for-item="items" wx:key="" class='th-item'>
+                        {{items}}
+                    </view>
+                </view>
+                
+            </view>
         </view>
 
     </view>
 </view>
 
 
-<view bindtap='bbb'>{{daylist}}</view>
-<view bindtap='bbb'>{{weekarr}}</view>

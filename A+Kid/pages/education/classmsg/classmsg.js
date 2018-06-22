@@ -12,7 +12,7 @@ Page({
       { name: "吴亦凡", classnumb: "五年二班" },
       { name: "张小胖", classnumb: "学前三班" },
     ],
-    usertype: app.globalData.usertype,
+    usertype:"",
     tabcontentlist: [
       [
         { studentname: "吴亦凡", classnumb: "五年二班", msgdate: "2018.08.11", content: "开课通知：今日游泳池水温28.2度，明天15日游泳池换水清洁不开放端午节放假通知：团操于2018年6月18日休课，泳池于2018年6月18日闭馆，其它区域正常使用，给您带来不便，敬请谅解" },
@@ -48,7 +48,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that= this
+      wx.getStorage({
+        key: 'usertype',
+        success: function(res) {
+          that.setData({
+            usertype:res.data
+          })
+        },
+      })
   },
 
   /**

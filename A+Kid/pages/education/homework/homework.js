@@ -1,18 +1,41 @@
 // pages/education/homework/homework.js
+const app = getApp()
+var choosedate = require("../../../utils/data.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    usertype: app.globalData.usertype,
+    weekarr: [],
+    weeklist: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+    daylist: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  preweek: function () {
+    choosedate.pre()
+    this.setData({
+      weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+    })
+  },
+  nextweek: function () {
+    choosedate.next()
+    this.setData({
+      weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+    })
+  },
   onLoad: function (options) {
-  
+    choosedate.setDate(new Date());
+    this.setData({
+      weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+    })
   },
 
   /**

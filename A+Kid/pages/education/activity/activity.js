@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    usertype:app.globalData.usertype,
+    usertype:"",
     currentActive:0,
     tabnavlist0:["进行中","已报名","已结束"],
     tabnavlist1: ["进行中",  "已结束"],
@@ -52,7 +52,15 @@ Page({
   },
  
   onLoad: function (options) {
-  
+    var that = this
+    wx.getStorage({
+      key: 'usertype',
+      success: function (res) {
+        that.setData({
+          usertype: res.data
+        })
+      },
+    })
   },
 
   /**

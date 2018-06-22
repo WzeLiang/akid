@@ -17,8 +17,10 @@
        </navigator>
       </view>
        <view class='item'>
-        <image src='../../../images/education/school.gif'></image>
-        <view>每周食谱</view>
+          <navigator url='../recipe/recipe'>
+              <image src='../../../images/education/school.gif'></image>
+             <view>每周食谱</view>
+          </navigator>
       </view>
        <view class='item'>
         <image src='../../../images/education/school.gif'></image>

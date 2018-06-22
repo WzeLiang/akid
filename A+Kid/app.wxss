@@ -8,6 +8,10 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.navigator-hover {
+background:none;
+}
+
 .sub-button{
    margin-top: 80rpx;
    background: -webkit-linear-gradient(left, rgb(163,221,103) , rgb(148, 213, 82));
@@ -53,7 +57,7 @@
 }
 .message {
     position: fixed;
-    top: 80%;
+    top: 84%;
     left: 50%;
     width: 400rpx;
     height: 80rpx;
@@ -108,4 +112,75 @@
 }
 .hidden{
   display: none;
+}
+.istop{
+  top: -160rpx;
+}
+.ismiddle{
+  top: 0;
+}
+.isbottom{
+  top: 160rpx;
+}
+
+
+
+
+
+.content .content-date{
+  display: flex;
+  height: 80rpx;
+  justify-content: space-around;
+  vertical-align: middle;
+  padding: 10rpx 40rpx;
+  line-height: 80rpx;
+}
+.content .content-date .pre,.content .content-date .next{
+  height: 80rpx;
+  vertical-align: middle;
+}
+.content .content-date .pre image,.content .content-date .next image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.content{
+  
+}
+.content .content-date{
+  display: flex;
+  height: 80rpx;
+  justify-content: space-around;
+  vertical-align: middle;
+  padding: 10rpx 40rpx;
+  line-height: 80rpx;
+}
+.content .content-date .pre,.content .content-date .next{
+  height: 80rpx;
+  vertical-align: middle;
+}
+.content .content-date .pre image,.content .content-date .next image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.content-info{
+  border: 1rpx solid rgb(229, 229, 229);
+}
+.content-info .tr-item{
+  display: flex;
+  border-bottom: 1rpx solid rgb(229, 229, 229);
+}
+.content-info .tr-item:last-child{
+  border: none;
+}
+.th-item:last-child{
+  border: none;
+}
+.th-item{
+  text-align: center;
+  font-size: 30rpx;
+  height: 86.25rpx;
+  line-height: 86.25rpx;
+  width:100%;
+  box-sizing: border-box;
+  border-right: 1px solid rgb(229, 229, 229);
 }

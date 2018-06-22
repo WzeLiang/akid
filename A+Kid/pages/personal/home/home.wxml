@@ -6,53 +6,67 @@
         <view class='head-name'>吴爸爸</view>
     </view>
     <!--家长  -->
-    <view class='relation'>
-        <view class='relation-box'>
-            <!-- <view class='relation-item'>
-                <navigator url='../relastudentinfo/relastudentinfo'>
-                    <view class="item-img">
-                       <image src='../../../images/education/teacher.jpg'></image>
-                    </view>
-                    <view class="item-name">周大生</view>
-                    <view class="item-class text-gray">五年二班</view>
-                </navigator>
+    <view wx:if="{{usertype==0}}">
+       <view class='relation'>
+          <view class='relation-box'>
+              <block wx:for="{{studentlist}}">
+                  <navigator url='../relastudentinfo/relastudentinfo'>
+                      <view class='relation-item'>
+                        <view class="item-img">
+                          <image src='{{item.url}}'></image>
+                        </view>
+                        <view class="item-name">{{item.name}}</view>
+                        <view class="item-class text-gray">{{item.classnumb}}</view>
+                      </view>  
+                  </navigator>
+              </block>
+          </view>
+          <view class='add-box text-center'>
+              <navigator url='../addrelation/addrelation'>
+                  <view class="add-img">
+                      <image src='../../../images/add.png'></image>
+                  </view>
+                  <view class="add-text text-gray">关联学生</view>
+              </navigator>
+          </view>
+       </view> <!-- end--relation -->
+
+        <view class='operate text-black'>
+            <view class='score' bindtap='toscore'>
+                <view>我要评分</view>
+                <view>></view>
             </view>
-            <view class='relation-item'>
-                <view class="item-img">
-                    <image src='../../../images/education/teacher.jpg'></image>
-                </view>
-                <view class="item-name">周大生</view>
-                <view class="item-class text-gray">五年二班</view>
-            </view> -->
-            <block wx:for="{{studentlist}}">
-                <navigator url='../relastudentinfo/relastudentinfo'>
-                    <view class='relation-item'>
-                      <view class="item-img">
-                        <image src='{{item.url}}'></image>
-                      </view>
-                      <view class="item-name">{{item.name}}</view>
-                      <view class="item-class text-gray">{{item.classnumb}}</view>
-                    </view>  
-                </navigator>
-            </block>
-        </view>
-        <view class='add-box text-center'>
-            <navigator url='../addrelation/addrelation'>
-                 <view class="add-img">
-                    <image src='../../../images/add.png'></image>
-                </view>
-                <view class="add-text text-gray">关联学生</view>
-            </navigator>
+            <view class='appointment' bindtap='toappointment'>
+                <view>我要预约</view>
+                <view>></view>
+            </view>
         </view>
     </view>
-    <view class='operate text-black'>
-        <view class='score' bindtap='toscore'>
-            <view>我要评分</view>
-            <view>></view>
-        </view>
-        <view class='appointment' bindtap='toappointment'>
-            <view>我要预约</view>
-            <view>></view>
+
+    <!--教师  -->
+    <view wx:if="{{usertype==1}}">
+        <view class='relation'>
+          <view class='relation-box'>
+              <block wx:for="{{classlist}}">
+                  <navigator url='../relastudentinfo/relastudentinfo'>
+                      <view class='relation-item'>
+                        <view class='item-bigimg'>{{}}</view>
+                        <view class="item-name">{{item.classnumb}}</view>
+                      </view>  
+                  </navigator>
+              </block>
+          </view>
+       </view> <!-- end--relation -->
+       
+        <view class='operate text-black'>
+            <view class='score' bindtap='toscore'>
+                <view>我的评分</view>
+                <view>></view>
+            </view>
+            <view class='appointment' bindtap='toappointment'>
+                <view>我的预约</view>
+                <view>></view>
+            </view>
         </view>
     </view>
 </view>

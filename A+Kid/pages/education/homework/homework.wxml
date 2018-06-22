@@ -1,118 +1,82 @@
 <view class='homework'>
-   <view class='date'>
-       <text>《</text> 2018.4.9-2018.4.15 <text> 》 </text>
-   </view>
-  <view class='week'>
-      <view class='week-box'>
-          <view class='day-box '>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
-          <view class='day-box active'>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
-          <view class='day-box'>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
-          <view class='day-box'>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
-          <view class='day-box'>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
-          <view class='day-box'>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
-           <view class='day-box'>
-              <view class='box-date'>
-                  <view>9</view>
-                  <view>周一</view>
-              </view>
-              <view class='box-numb'>
-                  <view>1</view>
-              </view>
-          </view>
+  <view class='content'>
+     <view class='content-date'>
+    <view class='pre' bindtap='preweek'>
+      <image src='../../../images/icon-left.png'></image>
+    </view>
+    <view class='first-date text-black'>{{weekarr[0]}}</view>
+    <view class='text-black'>-</view>
+    <view class='last-date text-black'>{{weekarr[6]}}</view>
+    <view class='next' bindtap='nextweek'>
+      <image src='../../../images/icon-right.png'></image>
+    </view>
+  </view>
+  <view class='content-info text-black text-center'>
+    <view class='head-date tr-item' style='border:none'>
+     
+      <view wx:for="{{daylist}}" class='th-item' style='height:100%;'>
+        <view>{{item}}</view>
       </view>
+
+    </view>
+    <view class='head-date tr-item'>
+      
+      <view wx:for="{{weeklist}}" class='th-item text-green' style='height:100%;'>
+        <view>{{item}}</view>
+      </view>
+
+    </view>
+
+  </view>
   </view>
   <view class='parents'>
-      <view class='homework-content'>
-         <view class='homework-item'>
-            <view class='item-title'>
-                <view class='student'>
-                    <view class='student-image'>
-                      <image src='../../../images/education/user.jpeg'></image>
-                    </view>
-                    <view class='student-info'>
-                        <view class='info-name'>张三<text>五年二班</text></view>
-                        <view class='info-time'>4.9 20：00</view>
-                    </view>
-                </view>
-                <view class='subject'>数学</view>
+    <view class='homework-content'>
+      <view class='homework-item'>
+        <view class='item-title'>
+          <view class='student'>
+            <view class='student-image'>
+              <image src='../../../images/education/user.jpeg'></image>
             </view>
-            <view class='item-content'>
-                <view>1、背诵课文</view>
-                <view>2、背诵元素周期表</view>
+            <view class='student-info'>
+              <view class='info-name'>张三
+                <text>五年二班</text>
+              </view>
+              <view class='info-time'>4.9 20：00</view>
             </view>
-         </view>
+          </view>
+          <view class='subject'>数学</view>
+        </view>
+        <view class='item-content'>
+          <view>1、背诵课文</view>
+          <view>2、背诵元素周期表</view>
+        </view>
       </view>
+    </view>
   </view>
 
   <view class='teacher'>
-      <view class='homework-content'>
-         <view class='homework-item'>
-            <view class='item-title'>
-                <view class='student'>
-                    <view class='student-info'>
-                        <view class='info-name'>张三<text>五年二班</text></view>
-                        <view class='info-time'>4.9 20：00</view>
-                    </view>
-                </view>
-                <view class='subject'>数学</view>
+    <view class='homework-content'>
+      <view class='homework-item'>
+        <view class='item-title'>
+          <view class='student'>
+            <view class='student-info'>
+              <view class='info-name'>张三
+                <text>五年二班</text>
+              </view>
+              <view class='info-time'>4.9 20：00</view>
             </view>
-            <view class='item-content'>
-                <view>1、背诵课文</view>
-                <view>2、背诵元素周期表</view>
-            </view>
-         </view>
+          </view>
+          <view class='subject'>数学</view>
+        </view>
+        <view class='item-content'>
+          <view>1、背诵课文</view>
+          <view>2、背诵元素周期表</view>
+        </view>
       </view>
+    </view>
   </view>
 
 </view>
 <view>
-    <navigator  class='releasehomework' url='./releasehomework/releasehomework'>布置作业</navigator>
+  <navigator class='releasehomework' url='./releasehomework/releasehomework'>布置作业</navigator>
 </view>

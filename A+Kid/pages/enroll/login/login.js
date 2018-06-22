@@ -1,10 +1,13 @@
 // pages/enroll/login/login.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tel:"",
+    pass:"",
     showMessage: false,
     messageContent: '',
   },
@@ -23,41 +26,38 @@ Page({
   },
   loginsubmit:function(e){
     console.log(e.detail.value);
-    // var formdata = e.detail.value;
-    // if(formdata.tel==''){
-    //   this.showMessage('请输入手机号');
-    // } else if (formdata.pass == ''){
-    //   this.showMessage('请输入密码');
-    // }else{
-      //这里请求接口
-    wx.switchTab({
-      url: '../../education/home/home',
-    })
-    // }
+    var formdata = e.detail.value;
+    if(formdata.tel==''){
+      this.showMessage('请输入手机号');
+    } else if (formdata.pass == ''){
+      this.showMessage('请输入密码');
+    }else{
+      if (formdata.tel == "123"&&formdata.pass =="123"){
+        wx.setStorageSync('usertype',0)
+        wx.switchTab({
+          url: '../../education/home/home',
+        })
+      } else if (formdata.tel == "456" && formdata.pass == "456"){
+        wx.setStorageSync('usertype', 1)
+        wx.switchTab({
+          url: '../../education/home/home',
+        })
+      }else{
+        this.showMessage('手机号或密码错误');
+        this.setData({
+          tel: "",
+          pass: "",
+        })
+
+      }
+   
+     }
   },
-  /**
+  /**app.globalData.usertype,
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var timestamp = Date.parse(new Date());
-    timestamp = timestamp / 1000;
-    console.log("当前时间戳为：" + timestamp);
-    var n = timestamp * 1000;
-    var date = new Date(n);
-    //年  
-    var Y = date.getFullYear();
-    //月  
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-    //日  
-    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    //时  
-    var h = date.getHours();
-    //分  
-    var m = date.getMinutes();
-    //秒  
-    var s = date.getSeconds();
-
-    console.log("当前时间：" + Y + M + D + h + ":" + m + ":" + s); 
+  
   },
 
   /**

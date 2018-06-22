@@ -12,6 +12,8 @@
     "pages/education/teacher/teacherinfo/teacherinfo",
     "pages/education/live/live",
     "pages/education/live/liveinfo/liveinfo",
+    "pages/education/askforleave/askforleave",
+
     "pages/education/activity/activity",
     "pages/education/attendance/attendance",
     "pages/education/activity/joinactivity/joinactivity",
@@ -20,6 +22,7 @@
     "pages/life/schoolinfo/schoolinfo",
     "pages/life/teachway/teachway",
     "pages/life/dynamic/dynamic",
+    "pages/life/recipe/recipe",
     
     "pages/personal/home/home",
     "pages/personal/addrelation/addrelation",
@@ -40,22 +43,26 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "selectedColor": "#1296db",
+    "selectedColor": "#89cb44",
     "list": [
       {
         "pagePath": "pages/education/home/home",
-        "text": "教务"
+        "text": "教务",
+        "selectedIconPath": "./images/education-on.png",
+        "iconPath": "./images/education-off.png"
        
       },
       {
         "pagePath": "pages/life/home/home",
-        "text": "生活"
-       
+        "text": "生活",
+        "selectedIconPath": "./images/life-on.png",
+        "iconPath": "./images/life-off.png"
       },
       {
         "pagePath": "pages/personal/home/home",
-        "text": "个人"
-        
+        "text": "个人",
+        "selectedIconPath": "./images/personal-on.png",
+        "iconPath": "./images/personal-off.png"
       }
     ]
   }

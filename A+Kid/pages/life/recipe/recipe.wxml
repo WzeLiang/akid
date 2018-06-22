@@ -1,25 +1,25 @@
-<view class="syllabus">
+<view class="recipe">
   <!--老师  -->
     <view wx-if="type=='1'">
         <view class='head'>
-            <view class='tab tab-list back-green {{select?"ismiddle":"istop"}}'>
+            <view class='tab tab-list back-green {{select?"istop":"isbottom"}}'>
               <view class='class'>
-                  <view class='classnumb'>列表</view>
+                  <view class='classnumb'>五年二班</view>
                   <view class='studentnumb'>人数：34</view>
               </view>
-              <view class='tabbtn' bindtap='selectitem' >
+              <view class='tabbtn' bindtap='selectitem'>
                   <view class='img'>
                       <image src='../../../images/tab.png'></image>
                   </view>
               </view>
             </view>
 
-            <view class='tab tab-select back-green {{select?"isbottom":"ismiddle"}}'>
+            <view class='tab tab-select back-green {{select?"isbottom":"istop"}}'>
               <view class='class'>
                   <view class='classnumb'>五年二班</view>
                   <view class='studentnumb'>人数：34</view>
               </view>
-              <view class='tabbtn' bindtap='selectitem'>
+              <view class='tabbtn' selectitem>
                   <view class='img'>
                       <image src='../../../images/tab.png'></image>
                   </view>
@@ -41,26 +41,21 @@
             </view>
             <view class='content-info text-black text-center'>
                 <view class='head-date tr-item' style='border:none'>
-                    <view class='th-item'></view>
+                   
                         <view wx:for="{{daylist}}" class='th-item' style='height:100%;'>
                            <view>{{item}}</view>
                         </view>
                         
                 </view>
                <view class='head-date tr-item'  >
-                    <view class='th-item '></view>
+                    
                         <view wx:for="{{weeklist}}" class='th-item text-green' style='height:100%;'> 
                            <view>{{item}}</view>
                         </view>
                         
                 </view>
 
-                <view wx:for="{{subjectlist}}" class='tr-item'>
-                   <view class='th-item'>{{item.index}}</view>
-                    <view wx:for="{{item.subjects}}" wx:for-item="items" wx:key="" class='th-item'>
-                        {{items}}
-                    </view>
-                </view>
+               
                 
             </view>
         </view>

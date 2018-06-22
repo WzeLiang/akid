@@ -3,19 +3,18 @@
   position: relative;
   width: 750rpx;
   height: 160rpx;
-  overflow: hidden;
 }
 .tab-list{
   position: absolute;
-
+  top: -160rpx;
 }
 .tab-select{
  position: absolute;
-
+  top: 0;
 }
 .tab{
   width: 100%;
-  transition: all .5s ease;
+  transition: all 1s ease;
   color: white;
   display: flex;
   justify-content: space-between;

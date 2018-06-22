@@ -1,45 +1,43 @@
-// pages/personal/home/home.js
-const app = getApp()
+// pages/education/askforleave/askforleave.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      usertype: "",
-      studentlist:[
-        {id:1, url: "../../../images/education/teacher.jpg", name:"周大生",classnumb:"五年二班"},
-        { id: 2, url: "../../../images/education/teacher.jpg", name: "周小生", classnumb: "学前三班" },
-      ],
-      classlist:[
-        { classid: 111,   classnumb: "五年二班" },
-        { classid: 222,   classnumb: "学前三班" },
-      ]
+    array: ['请选择学生', '老师', '家长',],
+    index: 0,
+    startdate: new Date(),
+    enddate: new Date()
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  toscore:function(e){
-    wx.navigateTo({
-      url: '../score/score',
-    })
-  },
-  toappointment:function(e){
-    wx.navigateTo({
-      url: '../appointment/appointment',
-    })
-  },
+  startdateselect: function (e) {
+    //改变index值，通过setData()方法重绘界面
+    this.setData({
+      date: e.detail.value
+    });
+    console.log(this.data.date)
+  }, 
+  enddateselect: function (e) {
+    //改变index值，通过setData()方法重绘界面
+    this.setData({
+      date: e.detail.value
+    });
+    console.log(this.data.date)
+  }, 
+
   onLoad: function (options) {
-    var that = this
-    wx.getStorage({
-      key: 'usertype',
-      success: function (res) {
-        that.setData({
-          usertype: res.data
-        })
-      },
-    })
+  var time =new Date()
+    console.log(time.toDateString);
+    console.log(time.getMonth);
+    console.log(time.getDay);
+    this.setData({
+      date: time
+     
+    });
   },
 
   /**

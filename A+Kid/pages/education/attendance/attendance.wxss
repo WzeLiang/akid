@@ -48,3 +48,29 @@
   width: 30rpx;
   height: 30rpx;
 }
+
+.content-info{
+  border: 1rpx solid rgb(229, 229, 229);
+}
+.content-info .tr-item{
+  display: flex;
+  border-bottom: 1rpx solid rgb(229, 229, 229);
+}
+.content-info .tr-item:last-child{
+  border: none;
+}
+.th-item:last-child{
+  border: none;
+}
+.th-item{
+  text-align: center;
+  font-size: 30rpx;
+  height: 86.25rpx;
+  line-height: 86.25rpx;
+  width:100%;
+  box-sizing: border-box;
+  border-right: 1px solid rgb(229, 229, 229);
+}
+.content-info .tr-item .th-item:nth-child(even){
+  background: rgb(250, 253, 246);
+}

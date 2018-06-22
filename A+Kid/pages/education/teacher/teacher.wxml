@@ -20,32 +20,41 @@
           </navigator>
       </view>
       <view class="item">
+        <navigator url='./teacherinfo/teacherinfo'>
           <view class='image'>
               <image src='../../../images/education/teacher.jpg'></image>
           </view>
           <view class='name'>福原爱</view>
           <view class='duties'>校长</view>
+        </navigator>
+      </view>
+     <view class="item">
+        <navigator url='./teacherinfo/teacherinfo'>
+          <view class='image'>
+              <image src='../../../images/education/teacher.jpg'></image>
+          </view>
+          <view class='name'>福原爱</view>
+          <view class='duties'>校长</view>
+        </navigator>
       </view>
       <view class="item">
+        <navigator url='./teacherinfo/teacherinfo'>
           <view class='image'>
               <image src='../../../images/education/teacher.jpg'></image>
           </view>
           <view class='name'>福原爱</view>
           <view class='duties'>校长</view>
+        </navigator>
       </view>
       <view class="item">
+        <navigator url='./teacherinfo/teacherinfo'>
           <view class='image'>
               <image src='../../../images/education/teacher.jpg'></image>
           </view>
           <view class='name'>福原爱</view>
           <view class='duties'>校长</view>
+        </navigator>
       </view>
-      <view class="item">
-          <view class='image'>
-              <image src='../../../images/education/teacher.jpg'></image>
-          </view>
-          <view class='name'>福原爱</view>
-          <view class='duties'>校长</view>
-      </view>
+      
   </view>
 </view>

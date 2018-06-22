@@ -43,6 +43,13 @@ Page({
       this.showMessage('请输入验证码');
     }else{
       //调用接口
+      this.showMessage('密码重置成功');
+      setTimeout(function () {
+        //要延时执行的代码 
+        wx.navigateBack({
+          
+        }) 
+      }, 1500) //延迟时间 这里是1秒  
     }
   },
 
