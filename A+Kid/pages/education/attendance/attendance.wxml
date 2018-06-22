@@ -1,0 +1,35 @@
+<view class="attendance">
+  <!--老师  -->
+    <view wx-if="type=='1'">
+        <view class='tab back-green'>
+           <view class='class'>
+              <view class='classnumb'>五年二班</view>
+              <view class='studentnumb'>人数：34</view>
+           </view>
+           <view class='tabbtn'>
+              <view class='img'>
+                  <image src='../../../images/tab.png'></image>
+              </view>
+           </view>
+        </view>
+
+        <view class='content'>
+            <view class='content-date'>
+                <view class='pre' bindtap='preweek'>
+                    <image src='../../../images/icon-left.png'></image>
+                </view>
+                <view class='first-date text-black'>{{weekarr[0]}}</view>
+                <view class='text-black'>-</view>
+                 <view class='last-date text-black'>{{weekarr[6]}}</view>
+                <view class='next' bindtap='nextweek'>
+                     <image src='../../../images/icon-right.png'></image>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+
+<view bindtap='bbb'>{{daylist}}</view>
+<view bindtap='bbb'>{{weekarr}}</view>
