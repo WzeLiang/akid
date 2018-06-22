@@ -26,16 +26,22 @@
 .page-item .item-img{
   margin: 15px 0;
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: flex-start;
   flex-wrap:  wrap ;
-  align-content: flex-start 
+  align-items: center;
 }
 .page-item .item-img::after {
   content: "";
   width: 220px;
 }
+.page-item .item-img .img{
+  padding-right: 30rpx;
+  width: 33.33%;
+  box-sizing: border-box;
+}
 .page-item .item-img image{
-  height: 220rpx;
-  width: 220rpx;
+  height: 210rpx;
+  width: 210rpx;
 
 }

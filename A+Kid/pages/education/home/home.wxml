@@ -8,10 +8,12 @@
     </block>
   </swiper>
   <view class='pro-box'>
-      <view class='pro-item'>
-            <image src='../../../images/education/attence.png'></image>
-            <view>考勤</view>
-      </view>
+     <navigator url='../attendance/attendance'>
+         <view class='pro-item'>
+                <image src='../../../images/education/attence.png'></image>
+                <view>考勤</view>
+          </view>
+     </navigator> 
       <view class='pro-item'>
          <navigator url='../../education/syllabus/syllabus'>
              <image src='../../../images/education/syllabus.png'></image>

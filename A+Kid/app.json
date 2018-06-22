@@ -13,6 +13,7 @@
     "pages/education/live/live",
     "pages/education/live/liveinfo/liveinfo",
     "pages/education/activity/activity",
+    "pages/education/attendance/attendance",
     "pages/education/activity/joinactivity/joinactivity",
     "pages/education/activity/userlist/userlist",
     "pages/life/home/home",

@@ -1,21 +1,13 @@
 // pages/education/syllabus/syllabus.js
 const app = getApp()
-var now = new Date();                    //当前日期
-var nowDayOfWeek = now.getDay();         //今天本周的第几天
-var nowDay = now.getDate();              //当前日
-var nowMonth = now.getMonth();           //当前月
-var nowYear = now.getYear();             //当前年
-console.log(nowYear)
+var choosedate=require("../../../utils/data.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     usertype: app.globalData.usertype,
-    cells:["2","1"],
-    clen:7,
-    currentFirstDate:"",
+    weekarr:[],
+    weeklist: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+    aaa:"11",
+    daylist:[],
     syllabusmap:[
       { 
         classnumb:"五年二班",
@@ -35,62 +27,48 @@ Page({
       }
     ]
   },
- 
+  //格式化日期 
+  
+  
   preweek:function(){
-
+    choosedate.pre()
+    this.setData({
+      weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+    })
   },
   nextweek:function(){
-
+    choosedate.next()
+    this.setData({
+      weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  getdate:function(){
-    
-  },
-  //格式化日期
-  formatDate:function (date) {
-    
-    var myyear = date.getYear();
-    console.log(myyear)
-    var mymonth = date.getMonth() + 1;
-    var myweekday = date.getDate();
-
-    if(mymonth < 10) {
-      mymonth = "0" + mymonth;
-    }
-    if (myweekday < 10) {
-      myweekday = "0" + myweekday;
-    }
-    return (myyear + "-" + mymonth + "-" + myweekday);
-  },
-  //获取本周开始时间
-  getWeekStartDate:function() {
-    var weekStartDate = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek);
-    // return formatDate(weekStartDate);
-    console.log(weekStartDate)
-   
-  },
-  //获得本周的结束日期
-   getWeekEndDate:function() {
-    var weekEndDate = new Date(nowYear, nowMonth, nowDay + (6 - nowDayOfWeek));
-   
-  //  return formatDate(weekEndDate);
-   
-  },
+ bbb:function(){
+   //console.log(this.data.aaa)
+ },
+  
   onLoad: function (options) {
-    this.getdate()
-    // this.formatDate()
-    this.getWeekStartDate()
-    this.getWeekEndDate()
+    console.log(choosedate.cells)
+    console.log(choosedate.weekday)
+    choosedate.setDate(new Date());
+    this.setData({
+      weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+    })
+   
 
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**

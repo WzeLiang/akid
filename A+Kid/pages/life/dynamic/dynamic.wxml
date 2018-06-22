@@ -7,11 +7,21 @@
           </view>
           <view class='total text-green'>全部</view>
           <view class='item-img'>
-              <image src='../../../images/life/life-item1.jpg'></image>
-              <image src='../../../images/life/life-item2.jpg'></image>
-             <image src='../../../images/life/life-item3.jpg'></image>
-             <image src='../../../images/life/life-item3.jpg'></image>
-             <image src='../../../images/life/life-item3.jpg'></image>
+              <view class='img'>
+                 <image src='../../../images/life/life-item2.jpg'></image>
+              </view>
+              <view class='img'>
+                 <image src='../../../images/life/life-item2.jpg'></image>
+              </view>
+              <view class='img'>
+                 <image src='../../../images/life/life-item2.jpg'></image>
+              </view>
+              <view class='img'>
+                 <image src='../../../images/life/life-item2.jpg'></image>
+              </view>
+              <view class='img'>
+                 <image src='../../../images/life/life-item2.jpg'></image>
+              </view>
           </view>
           <view class='item-date'>2018.3.27 19:00</view>
       </view>
