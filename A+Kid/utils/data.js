@@ -32,12 +32,12 @@ var setDate = function (date) {
     cells[i] = formatDate(i == 0 ? date : addDate(date, 1)).totaldate;
     weekday[i] = formatDate(i == 0 ? date : addDate(date,0)).daylist;
   }
-console.log(cells);
+//console.log(cells);
 
 // for (var i = 0; i < clen; i++) {
 //   weekday[i] = formatDate(i == 0 ? date : addDate(date, 1)).daylist;
 // }
-console.log(weekday)
+//console.log(weekday)
 };
  function pre() {
 

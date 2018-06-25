@@ -5,13 +5,13 @@
  
   <form class='login-form'  bindsubmit="loginsubmit">
     <view class='form-item'>
-        <input placeholder='请输入您的手机号' name='tel' value='{{tel}}' placeholder-class="input-placeholder"  type='number' maxlength='11'></input>
+        <input placeholder='请输入您的手机号' name='phone' value='{{phone}}' placeholder-class="input-placeholder"  type='number' maxlength='11'></input>
     </view>
     <view class='form-item'>
-        <input placeholder='请输入密码' name='pass' value="{{pass}}"  placeholder-class="input-placeholder"   type='number'></input>
+        <input placeholder='请输入密码' name='password' value="{{password}}"  placeholder-class="input-placeholder"   type='number'></input>
     </view>
     <view class='forget'>
-      <navigator url='../forget/forget'>
+      <navigator url='../register/register'>
           忘记密码
       </navigator>
     </view> 

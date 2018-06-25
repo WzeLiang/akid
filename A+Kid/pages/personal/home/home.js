@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      usertype: "",
+      usertoken: "",
+      memberType:"",
       studentlist:[
         {id:1, url: "../../../images/education/teacher.jpg", name:"周大生",classnumb:"五年二班"},
         { id: 2, url: "../../../images/education/teacher.jpg", name: "周小生", classnumb: "学前三班" },
@@ -33,12 +34,17 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.getStorage({
-      key: 'usertype',
+      key: 'user',
       success: function (res) {
+
+        // success
         that.setData({
-          usertype: res.data
+          usertoken: res.data.userToken,
+          memberType: res.data.memberType
         })
-      },
+        console.log(that.data.usertoken)
+        console.log(that.data.memberType)
+      }
     })
   },
 

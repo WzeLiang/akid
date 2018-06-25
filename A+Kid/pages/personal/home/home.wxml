@@ -6,7 +6,7 @@
         <view class='head-name'>吴爸爸</view>
     </view>
     <!--家长  -->
-    <view wx:if="{{usertype==0}}">
+    <view wx:if="{{memberType==1}}">
        <view class='relation'>
           <view class='relation-box'>
               <block wx:for="{{studentlist}}">
@@ -44,7 +44,7 @@
     </view>
 
     <!--教师  -->
-    <view wx:if="{{usertype==1}}">
+    <view wx:if="{{memberType==2}}">
         <view class='relation'>
           <view class='relation-box'>
               <block wx:for="{{classlist}}">

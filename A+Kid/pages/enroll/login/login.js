@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tel:"",
-    pass:"",
+    
+    loginURL: app.globalData.testurl + app.globalData.login,
     showMessage: false,
     messageContent: '',
   },
@@ -25,40 +25,43 @@ Page({
     }, 3000)
   },
   loginsubmit:function(e){
+    var that=this
     console.log(e.detail.value);
     var formdata = e.detail.value;
-    if(formdata.tel==''){
+    if (formdata.phone==''){
       this.showMessage('请输入手机号');
-    } else if (formdata.pass == ''){
+    } else if (formdata.password == ''){
       this.showMessage('请输入密码');
     }else{
-      if (formdata.tel == "123"&&formdata.pass =="123"){
-        wx.setStorageSync('usertype',0)
-        wx.switchTab({
-          url: '../../education/home/home',
-        })
-      } else if (formdata.tel == "456" && formdata.pass == "456"){
-        wx.setStorageSync('usertype', 1)
-        wx.switchTab({
-          url: '../../education/home/home',
-        })
-      }else{
-        this.showMessage('手机号或密码错误');
-        this.setData({
-          tel: "",
-          pass: "",
-        })
-
-      }
-   
-     }
+      wx.request({
+        url: this.data.loginURL,
+        method:"POST",
+        data:{
+          data:{
+            "phone": formdata.phone,
+            "password": formdata.password
+          }
+        },success:function(res){
+          
+          if (res.data.respCode == "000"){
+            wx.setStorageSync('user', res.data.data)
+            wx.switchTab({
+              url: '../../education/home/home',
+            })
+          }else{
+            that.showMessage("账户名或密码错误");
+            return false;
+          }
+        }
+      })
+    }
   },
   /**app.globalData.usertype,
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
+    
+  },  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
