@@ -3,7 +3,9 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
-    var memberType=wx.getStorageSync("")
+    this.globalData.userToken = wx.getStorageSync("userToken");
+    this.globalData.memberType = wx.getStorageSync("memberType");
+ 
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -36,6 +38,8 @@ App({
     })
   },
   globalData: {
+    memberType:"",
+    userToken:"",
     userInfo: null,
     usertype:0,//1老师，0家长;
     testurl:"http://192.168.212.29:9093",

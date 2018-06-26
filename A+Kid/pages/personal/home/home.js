@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      usertoken: "",
-      memberType:"",
+    usertoken: app.globalData.userToken,
+    memberType: app.globalData.memberType,
       studentlist:[
         {id:1, url: "../../../images/education/teacher.jpg", name:"周大生",classnumb:"五年二班"},
         { id: 2, url: "../../../images/education/teacher.jpg", name: "周小生", classnumb: "学前三班" },

@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/education/home/home",
-    "pages/enroll/login/login",
    
+    "pages/enroll/login/login",
+    "pages/education/home/home",
     "pages/education/homework/homework",
     "pages/education/classmsg/classmsg",
     "pages/education/classmsg/addclassmsg/addclassmsg",

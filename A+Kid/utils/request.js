@@ -63,11 +63,12 @@ class RequestApiHandler {
           //console.log(result)
           if (result.statusCode == 200) {
             if (isLogin) {
-              let tokens = result.data.data.userToke;
+              let tokens = result.data.data.userToken;
+              let memberType = result.data.data.memberType;
               console.log(tokens)
              // wx.setStorageSync('userInfo', data);
               wx.setStorageSync('userToken', tokens);
-              wx.setStorageSync('userToken', tokens);
+              wx.setStorageSync('memberType', memberType);
             }
             resolve(data);
           } else {
