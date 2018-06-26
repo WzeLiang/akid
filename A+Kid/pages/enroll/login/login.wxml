@@ -8,7 +8,7 @@
         <input placeholder='请输入您的手机号' name='phone' value='{{phone}}' placeholder-class="input-placeholder"  type='number' maxlength='11'></input>
     </view>
     <view class='form-item'>
-        <input placeholder='请输入密码' name='password' value="{{password}}"  placeholder-class="input-placeholder"   type='number'></input>
+        <input placeholder='请输入密码' name='password' value="{{password}}"  placeholder-class="input-placeholder"   type='password'></input>
     </view>
     <view class='forget'>
       <navigator url='../register/register'>

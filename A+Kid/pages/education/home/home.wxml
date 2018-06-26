@@ -57,6 +57,7 @@
          </navigator> 
       </view>
   </view>
+  <view bindtap='clearstorage'>clear</view>
   <view class='class-msg'>
     <view class='msg-head'>
       <view class='title-h3'>班级通知</view>

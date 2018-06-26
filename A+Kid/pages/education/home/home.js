@@ -1,13 +1,17 @@
 // pages/education/home/home.js
 const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    educationiniturl: app.globalData.testurl + app.globalData.educationInit,
-    bannerlisturl: app.globalData.testurl + app.globalData.educationbanners,
+    educationiniturl:  app.globalData.educationInit,
+    bannerlisturl:app.globalData.educationbanners,
+    adviceiniturl: app.globalData.educationadvice,
     usertoken:"",
     memberType:"",
     imgUrls: [
@@ -15,7 +19,7 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
-    indicatorDots: false,
+    indicatorDots: true,
     autoplay: true,
     interval: 4000,
     duration: 1000,
@@ -25,55 +29,40 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  educationinit: function () {
-    wx.request({
-      url: this.data.educationiniturl,
-      method: "POST",
-      
-      data: {
-        data: {
-          "userToken": this.data.usertoken
-        }
-      }
-      , success: function (res) {
-        console.log(res);
-      }
+
+  getbannerlist:function(){
+    ajax(this.data.bannerlisturl).paramters({}).post().then(res => {
+      console.log(res);
     })
   },
-  getbannerlist:function(){
-    wx.request({
-      url: this.data.bannerlisturl,
-      method: "POST",
-      data: {
-        data: {
-          "userToken": this.data.usertoken
-        }
-      }
-      , success: function (res) {
-        console.log(res);
-      }
+educationinit: function () {
+  ajax(this.data.educationiniturl).paramters({}).post().then(res => {
+     console.log(res);
     })
+  },
+adviceinit:function(){
+  ajax(this.data.adviceiniturl).paramters({}).post().then(res => {
+    console.log(res);
+  })
+},
+  clearstorage:function(){
+    var that = this;
+    wx.clearStorage({
+      success: function (res) {
+        that.setData({
+          storageContent: ''
+        })
+      }
+    });
+    var userToken = wx.getStorageSync("userToken")
+    console.log(userToken)
   },
   onLoad: function (options) {
-    var that= this
-    wx.getStorage({
-      key: 'user',
-      success: function (res) {
-      
-        // success
-        that.setData({
-          usertoken: res.data.userToken,
-          memberType: res.data.memberType
-        })
-       
-      }
-    })
-    setTimeout(function () {
-      that.educationinit()
-      that.getbannerlist()
-    }, 1000)
-    
-    
+    var userToken = wx.getStorageSync("userToken")
+    console.log(userToken)
+       this.getbannerlist()
+       this.educationinit()
+       this.adviceinit()
   },
   
   /**

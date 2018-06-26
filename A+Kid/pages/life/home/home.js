@@ -1,13 +1,19 @@
 // pages/life/home/home.js
+const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    schoollifeiniturl: app.globalData.schoollife_init,
     show: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['新天地幼儿园', '上海市第一人民小学', '红星幼儿园'],//下拉列表的数据
-    index: 0//选择的下拉列表下标
+    index: 0,//选择的下拉列表下标
+    imglist:[]
   },
   // 点击下拉显示框
   selectTap() {
@@ -26,8 +32,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  schoollifeinit:function(){
+    ajax(this.data.schoollifeiniturl).paramters({}).post().then(res => {
+      console.log(res);
+      // this.setData({
+      //   imglist:res.data.data
+      // })
+      //console.log(this.data.imglist)
+    })
+  },
   onLoad: function (options) {
-  
+    this.schoollifeinit()
   },
 
   /**

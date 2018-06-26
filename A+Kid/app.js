@@ -3,6 +3,7 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
+    var memberType=wx.getStorageSync("")
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -88,7 +89,7 @@ App({
     class_list:"api/class/list",    //班级列表=================根据教师ID查询班级列表-------------------------
     
     //生活
-    schoollife_init:"api/schoollife/init",
+    schoollife_init:"/api/schoollife/init",
     schoollife_schoolinfo:"api/schoollife/school",
     //每周食谱
     cookbook_parents:"api/cookbook/parents",

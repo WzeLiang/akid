@@ -1,5 +1,10 @@
 // pages/enroll/login/login.js
 const app = getApp()
+import WxValidate from '../../../utils/validate.js';
+import { sha1 } from '../../../utils/util';
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import WxNotificationCenter from '../../../utils/wxnotification';
 Page({
 
   /**
@@ -7,7 +12,7 @@ Page({
    */
   data: {
     
-    loginURL: app.globalData.testurl + app.globalData.login,
+    loginURL: app.globalData.login,
     showMessage: false,
     messageContent: '',
   },
@@ -28,32 +33,57 @@ Page({
     var that=this
     console.log(e.detail.value);
     var formdata = e.detail.value;
+    var form={
+      "phone": formdata.phone,
+      "password": formdata.password
+    }
     if (formdata.phone==''){
       this.showMessage('请输入手机号');
     } else if (formdata.password == ''){
       this.showMessage('请输入密码');
     }else{
-      wx.request({
-        url: this.data.loginURL,
-        method:"POST",
-        data:{
-          data:{
-            "phone": formdata.phone,
-            "password": formdata.password
-          }
-        },success:function(res){
-          
-          if (res.data.respCode == "000"){
-            wx.setStorageSync('user', res.data.data)
-            wx.switchTab({
-              url: '../../education/home/home',
-            })
-          }else{
-            that.showMessage("账户名或密码错误");
-            return false;
-          }
-        }
+      ajax(this.data.loginURL).paramters(form).login().then(res => {
+        //this.show('登录成功')
+        console.log("登陆成功")
+        wx.switchTab({
+          url: '../../education/home/home',
+        })
+        WxNotificationCenter.postNotificationName('LOGINGSUCCESS')
+        console.log(res)
+        // let pages = getCurrentPages();
+        // let curPage = pages[pages.length - 1];
+        // console.log(pages)
+        // pageTo('../reward/reward',{},true) 
+       // wx.navigateBack()
+        // wx.switchTab({
+        //   url: '../reward/reward'
+        // })
       })
+
+
+      
+      // wx.request({
+      //   url: this.data.loginURL,
+      //   method:"POST",
+      //   data:{
+      //     data:{
+      //       "token":"",
+      //       "phone": formdata.phone,
+      //       "password": formdata.password
+      //     }
+      //   },success:function(res){
+          
+      //     if (res.data.respCode == "000"){
+      //       wx.setStorageSync('user', res.data.data)
+      //       wx.switchTab({
+      //         url: '../../education/home/home',
+      //       })
+      //     }else{
+      //       that.showMessage("账户名或密码错误");
+      //       return false;
+      //     }
+      //   }
+      // })
     }
   },
   /**app.globalData.usertype,
