@@ -10,7 +10,11 @@
      </view>
 
     <view class='box'>
-      <view class='item'>
+      <view  wx:for="{{imglist}}" class='item' id="{{item.itemId}}" catchtap='gotodetil'>
+         <image src='../../../images/education/school.gif'></image>
+         <view class='text-center'>{{item.item}}</view>
+      </view>
+      <!-- <view class='item'>
        <navigator url='../schoolinfo/schoolinfo'>
            <image src='../../../images/education/school.gif'></image>
            <view>校园简介</view>
@@ -37,6 +41,7 @@
             <image src='../../../images/education/school.gif'></image>
             <view>教子有方</view>
         </navigator>
-      </view>
+      </view> -->
+
     </view>
 </view>

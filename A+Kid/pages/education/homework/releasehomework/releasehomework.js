@@ -1,10 +1,15 @@
 // pages/education/homework/releasehomework/releasehomework.js
+const app = getApp()
+import ajax from '../../../../utils/request';
+import { pageTo } from '../../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    bannerlisturl: app.globalData.educationbanners,
     array: ['请选择科目', '数学', '英语',],
     subjectindex: 0,
     date: new Date()
@@ -26,6 +31,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  getbannerlist: function () {
+    ajax(this.data.bannerlisturl).paramters({}).post().then(res => {
+      console.log(res);
+    }).catch(err => {
+
+    })
+  },
   onLoad: function (options) {
     var time =new Date()
     console.log(time.toDateString);
@@ -35,7 +47,9 @@ Page({
       date: time
      
     });
-
+    var userToken = wx.getStorageSync("userToken")
+    console.log(userToken)
+    this.getbannerlist()
   },
 
   /**

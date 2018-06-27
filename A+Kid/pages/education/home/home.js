@@ -33,16 +33,22 @@ Page({
   getbannerlist:function(){
     ajax(this.data.bannerlisturl).paramters({}).post().then(res => {
       console.log(res);
+    }).catch(err=>{
+     
     })
   },
 educationinit: function () {
   ajax(this.data.educationiniturl).paramters({}).post().then(res => {
      console.log(res);
-    })
+  }).catch(err => {
+    
+  })
   },
 adviceinit:function(){
   ajax(this.data.adviceiniturl).paramters({}).post().then(res => {
     console.log(res);
+  }).catch(err => {
+    
   })
 },
   clearstorage:function(){
@@ -61,8 +67,8 @@ adviceinit:function(){
     var userToken = wx.getStorageSync("userToken")
     console.log(userToken)
        this.getbannerlist()
-       this.educationinit()
-       this.adviceinit()
+      //  this.educationinit()
+      //  this.adviceinit()
   },
   
   /**

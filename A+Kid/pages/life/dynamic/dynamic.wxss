@@ -43,5 +43,8 @@
 .page-item .item-img image{
   height: 210rpx;
   width: 210rpx;
-
+}
+.item-date{
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
 }

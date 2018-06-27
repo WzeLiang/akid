@@ -61,7 +61,8 @@ class RequestApiHandler {
           wx.hideNavigationBarLoading();
           let data = result.data;
           //console.log(result)
-          if (result.statusCode == 200) {
+          if (result.data.respCode == "000") {
+            console.log("已经登录")
             if (isLogin) {
               let tokens = result.data.data.userToken;
               let memberType = result.data.data.memberType;
@@ -72,23 +73,29 @@ class RequestApiHandler {
             }
             resolve(data);
           } else {
-            // if (result.statusCode == 401) {
-            //   console.log(result)
-            //   $wuxDialog.show({
-            //     content: '您还没有登录,请先登录', onCancel() {
-            //       $wuxDialog.hide()
-            //     }, onConfirm() {
-            //       $wuxDialog.hide()
-            //       pageTo('../login/login', {}, true)
-            //     }
-            //   })
-            // }
-            // else {
-            //   console.log(result.data)
-            //   $wuxToptips.error({ text: result.data })
-            // }
+            console.log("还未1")
+            if (result.data.respCode == "500") {
+              console.log("还未222")
+               console.log(result)
+               wx.navigateTo({
+                 url: '../../enroll/login/login',
+                  })
+              //  $wuxDialog.show({
+              //   content: '您还没有登录,请先登录', onCancel() {
+              //      $wuxDialog.hide()
+              //   }, onConfirm() {
+              //      $wuxDialog.hide()
+              //     // pageTo('../login/login', {}, true)
+              //    
+              //    }
+              //  })
+             }
+             else {
+               console.log(result.data)
+               $wuxToptips.error({ text: result.data })
+             }
 
-            // reject(result);
+             reject(result);
           }
 
         },

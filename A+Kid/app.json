@@ -1,8 +1,10 @@
 {
   "pages":[
-   
+   "pages/education/home/home",
+   "pages/life/home/home",
+   "pages/personal/home/home",
     "pages/enroll/login/login",
-    "pages/education/home/home",
+    
     "pages/education/homework/homework",
     "pages/education/classmsg/classmsg",
     "pages/education/classmsg/addclassmsg/addclassmsg",
@@ -19,13 +21,13 @@
     "pages/education/attendance/attendance",
     "pages/education/activity/joinactivity/joinactivity",
     "pages/education/activity/userlist/userlist",
-    "pages/life/home/home",
+    
     "pages/life/schoolinfo/schoolinfo",
     "pages/life/teachway/teachway",
     "pages/life/dynamic/dynamic",
     "pages/life/recipe/recipe",
     
-    "pages/personal/home/home",
+    
     "pages/personal/addrelation/addrelation",
     "pages/personal/relastudentinfo/relastudentinfo",
     "pages/personal/score/score",

@@ -3,20 +3,20 @@
         <view class='head-img'>
              <image src='../../../images/education/teacher.jpg'></image>
         </view>
-        <view class='head-name'>吴爸爸</view>
+        <view class='head-name'>{{user.nickname==null?"家长昵称":user.nickname}}</view>
     </view>
     <!--家长  -->
     <view wx:if="{{memberType==1}}">
        <view class='relation'>
           <view class='relation-box'>
-              <block wx:for="{{studentlist}}">
+              <block wx:for="{{user.students}}">
                   <navigator url='../relastudentinfo/relastudentinfo'>
-                      <view class='relation-item'>
+                      <view class='relation-item' id="{{item.studentId}}">
                         <view class="item-img">
-                          <image src='{{item.url}}'></image>
+                          <image src='{{item.profilePicture}}'></image>
                         </view>
-                        <view class="item-name">{{item.name}}</view>
-                        <view class="item-class text-gray">{{item.classnumb}}</view>
+                        <view class="item-name">{{item.studentName}}</view>
+                        <view class="item-class text-gray">{{item.className}}</view>
                       </view>  
                   </navigator>
               </block>

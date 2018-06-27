@@ -16,6 +16,7 @@
   margin: 0 30rpx;
   position: relative;
   padding: 30rpx 0;
+  height: 180rpx;
 }
 .relation-box{
   overflow-y:scroll;

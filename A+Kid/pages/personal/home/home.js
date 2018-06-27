@@ -1,13 +1,18 @@
 // pages/personal/home/home.js
 const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    usertoken: app.globalData.userToken,
-    memberType: app.globalData.memberType,
+    personaliniturl: app.globalData.my_parentsinit,
+   
+    usertoken: "",
+    memberType: "",
       studentlist:[
         {id:1, url: "../../../images/education/teacher.jpg", name:"周大生",classnumb:"五年二班"},
         { id: 2, url: "../../../images/education/teacher.jpg", name: "周小生", classnumb: "学前三班" },
@@ -15,7 +20,8 @@ Page({
       classlist:[
         { classid: 111,   classnumb: "五年二班" },
         { classid: 222,   classnumb: "学前三班" },
-      ]
+      ],
+      user:{}
   },
 
   /**
@@ -31,21 +37,28 @@ Page({
       url: '../appointment/appointment',
     })
   },
-  onLoad: function (options) {
-    var that = this
-    wx.getStorage({
-      key: 'user',
-      success: function (res) {
 
-        // success
-        that.setData({
-          usertoken: res.data.userToken,
-          memberType: res.data.memberType
-        })
-        console.log(that.data.usertoken)
-        console.log(that.data.memberType)
-      }
+  
+  personalinit: function () {
+    ajax(this.data.personaliniturl).paramters({}).post().then(res => {
+      console.log(res.data);
+      this.setData({
+        user:res.data
+
+      })
+    }).catch(err => {
+
     })
+  },
+  onLoad: function (options) {
+    var userToken = wx.getStorageSync("userToken")
+    var memberType = wx.getStorageSync("memberType")
+    console.log(userToken)
+    this.setData({
+      memberType: memberType
+    })
+    this.personalinit()
+  
   },
 
   /**

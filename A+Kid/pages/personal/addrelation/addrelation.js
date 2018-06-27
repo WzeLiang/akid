@@ -1,16 +1,24 @@
 // pages/personal/addrelation/addrelation.js
+const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    schoolarray: ['请选择>', '上海第一人民小学', '星星幼儿园'],
-    parentarray: ['请选择>', '父亲', '母亲'],
+    merchantlisturl: app.globalData.my_merchantlist,
+    studentaddurl: app.globalData.my_parent_studentadd,
+    // schoolarray: ['请选择>', '上海第一人民小学', '星星幼儿园'],
+    schoolarray:[],
+    parentarray: ['请选择>', '父亲', '母亲' , "爷爷" , "奶奶" , "其他"],
     schoolindex: 0,
     parentindex:0,
     showMessage: false,
     messageContent: '',
+    merchantId:""
   },
 
   /**
@@ -30,10 +38,12 @@ Page({
     }, 3000)
   },
   schoolSelected:function(e){
+    console.log(e)
     this.setData({
-      schoolindex: e.detail.value
+      schoolindex: e.detail.value,
+      merchantId: this.data.schoolarray[e.detail.value].id
     });
-    console.log(this.data.schoolindex)
+    console.log(this.data.merchantId)
   },
   parentSelected:function(e){
     this.setData({
@@ -43,25 +53,56 @@ Page({
   },
 
   addrelationsubmit: function (e) {
-    console.log(e.detail.value);
+    //console.log(e.detail.value);
     var formdata = e.detail.value;
-    if (formdata.name == "") {
+    var form = {
+      "studentName": formdata.studentName,
+      "studentNumber": formdata.studentNumber,
+      "merchantId": this.data.merchantId,
+      "relationType": formdata.parentindex,
+      "remark": formdata.remark
+    }
+    console.log(form)
+    if (formdata.studentName == "") {
       this.showMessage('请输入学生姓名');
-    } else if (formdata.code == '') {
+    } else if (formdata.studentName == '') {
       this.showMessage('请输入学生编号');
-    } else if (formdata.school == 0) {
-      this.showMessage('请选择学校');
-    } else if (formdata.parent == 0) {
+    } else if (formdata.parentindex == 0) {
       this.showMessage('请选择关系');
     }  else {
       //调用接口
-     wx.switchTab({
-       url: '../home/home',
-     })
+      ajax(this.data.studentaddurl).paramters(form).post().then(res => {
+
+       this.showMessage('关联成功');
+       setTimeout(function () {
+         //要延时执行的代码 
+         wx.navigateBack({
+
+         })
+       }, 1500) //延迟时间 这里是1秒  
+  
+      }).catch(err => {
+          if (err.data.respCode=="400"){
+            console.log(err.data)
+            this.showMessage("信息错误,请核对信息!");
+          }
+      })
     }
   },
+  //查找商户列表
+  getmerchantlist: function () {
+    ajax(this.data.merchantlisturl).paramters({}).post().then(res => {
+       console.log(res.data);
+      this.setData({
+        schoolarray:res.data
+
+      })
+    }).catch(err => {
+
+    })
+  },
   onLoad: function (options) {
-  
+    this.getmerchantlist()
   },
 
   /**

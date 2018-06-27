@@ -13,7 +13,8 @@ Page({
     show: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['新天地幼儿园', '上海市第一人民小学', '红星幼儿园'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
-    imglist:[]
+    imglist:[],
+    merchantsL:[]
   },
   // 点击下拉显示框
   selectTap() {
@@ -35,16 +36,43 @@ Page({
   schoollifeinit:function(){
     ajax(this.data.schoollifeiniturl).paramters({}).post().then(res => {
       console.log(res);
-      // this.setData({
-      //   imglist:res.data.data
-      // })
-      //console.log(this.data.imglist)
+      this.setData({
+        imglist:res.data.data
+      })
+    console.log(this.data.imglist)
     })
   },
   onLoad: function (options) {
     this.schoollifeinit()
   },
+  gotodetil: function (e){
+    var id=e.currentTarget.id;
+    if (id==1){
+      wx.navigateTo({
+        url: '../schoolinfo/schoolinfo',
+      })
+    }else if(id==2){
+      wx.navigateTo({
+        url: '../recipe/recipe',
+      })
+    }
+    else if (id == 3) {
+      // wx.navigateTo({
+      //   url: '../recipe/recipe',
+      // })
+    }
+    else if (id == 4) {
+      wx.navigateTo({
+        url: '../dynamic/dynamic',
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../teachway/teachway',
+      })
+    }
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

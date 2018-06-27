@@ -1,5 +1,6 @@
 <view class='classmsg'>
-  <view wx:if="{{usertype==0}}">
+<!--家长  -->
+  <view wx:if="{{memberType==1}}">
     <view class='tabnav'>
       <view class='tab-item {{currentActive==index?"active":""}}' wx:for="{{tabnavlist}}" wx:key="" bindtap='testclick' data-current="{{index}}">
         {{item.name}}
@@ -24,7 +25,7 @@
   </view>
 
   <!--老师 -->
-    <view wx-if="{{usertype==1}}">
+    <view wx-if="{{memberType==2}}">
         <view wx:for="{{teachercontentlist}}" class='tab-content' >
         <!-- <view>索引{{index}}</view> -->
         <view class='content-item' wx:for="{{item}}" wx:for-item="items" wx:key="">
