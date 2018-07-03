@@ -45,6 +45,7 @@ class RequestApiHandler {
     let userToken = wx.getStorageSync('userToken');
     console.log(userToken)
     return new Promise((resolve, reject) => {
+      t
       this.data = userToken ? Object.assign({}, this.data, { "userToken": userToken }):this.data
       var datas={
         data:this.data
@@ -74,21 +75,13 @@ class RequestApiHandler {
             resolve(data);
           } else {
             console.log("还未1")
-            if (result.data.respCode == "500") {
-              console.log("还未222")
+            if (result.data.respCode == "300") {
+             // console.log("还未222")
                console.log(result)
                wx.navigateTo({
                  url: '../../enroll/login/login',
                   })
-              //  $wuxDialog.show({
-              //   content: '您还没有登录,请先登录', onCancel() {
-              //      $wuxDialog.hide()
-              //   }, onConfirm() {
-              //      $wuxDialog.hide()
-              //     // pageTo('../login/login', {}, true)
-              //    
-              //    }
-              //  })
+           
              }
              else {
                console.log(result.data)
@@ -110,7 +103,10 @@ class RequestApiHandler {
     this.method = "GET";
     return this.send();
   }
-
+  formpost(islogin = false){
+    this.method = "POST";
+    return this.send(isLogin);
+  }
   post(isLogin = false) {
     this.method = "POST";
     return this.send(isLogin);
