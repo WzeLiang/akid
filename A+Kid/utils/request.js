@@ -43,13 +43,19 @@ class RequestApiHandler {
     // let requestURL = `${this.baseURL}`
 
     let userToken = wx.getStorageSync('userToken');
+    let reSubmitToken=wx.getStorageSync("reSubmitToken")
+    
     console.log(userToken)
+    console.log(reSubmitToken)
     return new Promise((resolve, reject) => {
-      t
+
       this.data = userToken ? Object.assign({}, this.data, { "userToken": userToken }):this.data
+  
       var datas={
         data:this.data
       }
+     this.datas = reSubmitToken ? Object.assign({}, this.data, { "reSubmitToken": reSubmitToken }) : this.data;
+      console.log(datas)
       wx.request({
         url: requestURL,
         method: this.method,
@@ -75,7 +81,7 @@ class RequestApiHandler {
             resolve(data);
           } else {
             console.log("还未1")
-            if (result.data.respCode == "300") {
+            if (result.data.respCode == "500") {
              // console.log("还未222")
                console.log(result)
                wx.navigateTo({

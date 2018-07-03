@@ -11,6 +11,7 @@ Page({
   data: {
     merchantlisturl: app.globalData.my_merchantlist,
     studentaddurl: app.globalData.my_parent_studentadd,
+    reSubmitTokenurl: app.globalData.reSubmitToken,
     // schoolarray: ['请选择>', '上海第一人民小学', '星星幼儿园'],
     schoolarray:[],
     parentarray: ['请选择>', '父亲', '母亲' , "爷爷" , "奶奶" , "其他"],
@@ -18,17 +19,10 @@ Page({
     parentindex:0,
     showMessage: false,
     messageContent: '',
-    merchantId:""
+    merchantId:"",
+    reSubmitToken:''
   },
-    data:{
-      resubmittoken:"asdasdasdasd",
-      data:{
-        "token":"asdasdasd",
-        "username":aaa,
-        "pass":bbb
-      }
-
-    },
+    
   /**
    * 生命周期函数--监听页面加载
    */
@@ -109,8 +103,21 @@ Page({
 
     })
   },
+  getreSubmitToken:function(){
+    ajax(this.data.reSubmitTokenurl).paramters({}).post().then(res => {
+      console.log(res.data);
+      this.setData({
+        reSubmitToken: res.data.reSubmitToken
+      })
+      wx.setStorageSync('reSubmitToken', res.data.reSubmitToken);
+    }).catch(err => {
+
+    })
+  },
   onLoad: function (options) {
+
     this.getmerchantlist()
+    this.getreSubmitToken()
   },
 
   /**

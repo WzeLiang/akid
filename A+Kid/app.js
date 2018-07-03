@@ -45,6 +45,7 @@ App({
     testurl:"http://192.168.212.29:9093",
 
     login:"/api/login",
+    reSubmitToken:"/api/public/reSubmitToken",//获取防止重复提交token
     register:"/api/register/member",
     getVerifyCode:"/api/register/getVerifyCode",
     logout:"/api/logout",
