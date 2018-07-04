@@ -1,18 +1,89 @@
 // pages/personal/relastudentinfo/relastudentinfo.js
+const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    studentdetailurl: app.globalData.my_parent_studentdetail,
+    // studentaddurl: app.globalData.my_parent_studentadd,
+    // reSubmitTokenurl: app.globalData.reSubmitToken,
+    studentcancelurl: app.globalData.my_parent_studentcancel,
+    studentId:"",
+    user:""
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  showMessage: function (text) {
+    var that = this
+    that.setData({
+      showMessage: true,
+      messageContent: text
+    })
+    setTimeout(function () {
+      that.setData({
+        showMessage: false,
+        messageContent: ''
+      })
+    }, 3000)
+  },
+  ///获取学生信息
+  getstudentinfo:function(){
+    var data={
+      "studentId": this.data.studentId
+    }
+    ajax(this.data.studentdetailurl).paramters(data).post().then(res => {
+      console.log(res)
+
+      this.setData({
+        user:res.data
+      })
   
+      
+
+    }).catch(err => {
+      console.log(err)
+      // if (err.data.respCode=="400"){
+      //   console.log(err.data)
+      //   this.showMessage("信息错误,请核对信息!");
+      // }
+    })
+  },
+  //取消学生关联
+  disassociation:function(){
+    var data = {
+      "studentId": this.data.studentId
+    }
+    ajax(this.data.studentcancelurl).paramters(data).post().then(res => {
+      console.log(res)
+      this.showMessage('取消关联成功');
+      setTimeout(function () {
+         //要延时执行的代码 
+         wx.navigateBack({
+
+         })
+       }, 6000) //延迟时间 这里是1秒
+     
+
+
+    }).catch(err => {
+      console.log(err)
+      // if (err.data.respCode=="400"){
+      //   console.log(err.data)
+      //   this.showMessage("信息错误,请核对信息!");
+      // }
+    })
+  },
+  onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      studentId: options.studentid
+    })
+    this.getstudentinfo()
+
   },
 
   /**

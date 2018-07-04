@@ -43,10 +43,10 @@ class RequestApiHandler {
     // let requestURL = `${this.baseURL}`
 
     let userToken = wx.getStorageSync('userToken');
-    let reSubmitToken=wx.getStorageSync("reSubmitToken")
+   
     
     console.log(userToken)
-    console.log(reSubmitToken)
+
     return new Promise((resolve, reject) => {
 
       this.data = userToken ? Object.assign({}, this.data, { "userToken": userToken }):this.data
@@ -54,7 +54,13 @@ class RequestApiHandler {
       var datas={
         data:this.data
       }
-     this.datas = reSubmitToken ? Object.assign({}, this.data, { "reSubmitToken": reSubmitToken }) : this.data;
+      console.log(datas.data["reSubmitToken"])
+      if (datas.data.hasOwnProperty("reSubmitToken")){
+        let aa = datas.data["reSubmitToken"];
+      //  console.log(aa)
+        datas.reSubmitToken = aa;
+        delete datas.data["reSubmitToken"]
+      }
       console.log(datas)
       wx.request({
         url: requestURL,
@@ -84,10 +90,14 @@ class RequestApiHandler {
             if (result.data.respCode == "500") {
              // console.log("还未222")
                console.log(result)
-               wx.navigateTo({
-                 url: '../../enroll/login/login',
-                  })
+              //  wx.navigateTo({
+              //    url: '../../enroll/login/login',
+              //     })
            
+            } else if (result.data.respCode == "300"){
+              wx.navigateTo({
+                url: '../../enroll/login/login',
+              })
              }
              else {
                console.log(result.data)

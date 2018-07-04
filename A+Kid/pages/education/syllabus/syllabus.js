@@ -1,10 +1,15 @@
 // pages/education/syllabus/syllabus.js
 const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 var choosedate=require("../../../utils/data.js")
 Page({
   data: {
-    usertype: app.globalData.usertype,
+    courseparentsurl: app.globalData.courseparents,
     select:false,
+    studentlist:[],
+    memberType: "",
     weekarr:[],
     weeklist: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
     daylist:[],
@@ -47,18 +52,45 @@ Page({
    * selectitem
    * 生命周期函数--监听页面加载
    */
+  //家长获取默认学生课表
+  parentgetsyllabus:function(){
+    //var classids =  this.data.studentlist[0].classId;
+    // var datas={
+    //   "classId": this.data.studentlist[0].classId
+    // }
+        var datas={
+      "classId": 2
+    }
+    ajax(this.data.courseparentsurl).paramters(datas).post().then(res => {
+      console.log(res.data);
+      
+    }).catch(err => {
 
+    })
+  },
   
   onLoad: function (options) {
-    console.log(choosedate.cells)
-    console.log(choosedate.weekday)
+    // console.log(choosedate.cells)
+    // console.log(choosedate.weekday)
     choosedate.setDate(new Date());
     this.setData({
       weekarr: choosedate.cells,
       daylist: choosedate.weekday,
     })
-   
-
+    var memberType = wx.getStorageSync("memberType")
+    var studentlist = wx.getStorageSync("studentlist")
+    if(!studentlist){
+      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    }else{
+      this.setData({
+        studentlist: studentlist
+      })
+      console.log(this.data.studentlist)
+    }
+    this.setData({
+      memberType: memberType,
+    })
+    this.parentgetsyllabus()
    
   },
 

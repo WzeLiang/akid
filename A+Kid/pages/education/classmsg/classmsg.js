@@ -1,16 +1,21 @@
 // pages/education/classmsg/classmsg.js
 const app = getApp()
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
+import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    personaliniturl: app.globalData.my_parentsinit,
+    parentsgetlisturl: app.globalData.advice_parentslist,
+    user:"",
+    classidlist:[],
     currentActive: 0,
     tabnavlist: [
-      { name: "全部", classnumb: "" },
-      { name: "吴亦凡", classnumb: "五年二班" },
-      { name: "张小胖", classnumb: "学前三班" },
+      { studentName: "全部", classnumb: "" },
     ],
     usertoken: "",
     memberType: "",
@@ -40,6 +45,37 @@ Page({
       currentActive: e.currentTarget.dataset.current
     })
   },
+   personalinit: function () {
+     ajax(this.data.personaliniturl).paramters({}).post().then(res => {
+       console.log(res.data);
+       this.setData({
+         user: res.data,
+         tabnavlist: this.data.tabnavlist.concat(res.data.students),
+       })
+      //  for(let i=0;i<=res.data.students.length;i++){
+      //    console.log(res.data.students[i].classId)
+      //    this.setData({
+      //      classidlist: this.classidlist.push(res.data.students[i].classId)
+      //    })
+      //  }
+       console.log(this.data.tabnavlist)
+     }).catch(err => {
+
+     })
+   },
+   //根据班级获取班级通知
+   parentgetclassmsg:function(){
+     var classid = this.data.classidlist
+     ajax(this.data.parentsgetlisturl).paramters({}).post().then(res => {
+       console.log(res.data);
+       this.setData({
+         
+       })
+   
+     }).catch(err => {
+
+     })
+   },
    toaddclassmsg:function(e){
      wx.navigateTo({
        url: './addclassmsg/addclassmsg',
@@ -49,12 +85,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userToken = wx.getStorageSync("userToken")
     var memberType = wx.getStorageSync("memberType")
-    console.log(userToken)
     this.setData({
       memberType: memberType
     })
+    this.personalinit()
   },
 
   /**

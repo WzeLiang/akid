@@ -1,7 +1,7 @@
 <view class="syllabus">
   <!--老师  -->
-    <view wx-if="type=='1'">
-        <view class='head'>
+    <view>
+        <view class='head'  wx-if="{{memberType=='2'}}">
             <view class='tab tab-list back-green {{select?"ismiddle":"istop"}}'>
               <view class='class'>
                   <view class='classnumb'>列表</view>
@@ -18,6 +18,33 @@
               <view class='class'>
                   <view class='classnumb'>五年二班</view>
                   <view class='studentnumb'>人数：34</view>
+              </view>
+              <view class='tabbtn' bindtap='selectitem'>
+                  <view class='img'>
+                      <image src='../../../images/tab.png'></image>
+                  </view>
+              </view>
+            </view>
+        </view>
+      <!--家长  -->
+        <view class='head'  wx-if="{{memberType=='1'}}">
+            <view class='tab tab-list back-green {{select?"ismiddle":"istop"}}'>
+              <view class='class' wx:for="{{studentlist}}">
+                  <view class='classnumb'>{{item.studentName}}</view>
+                  <view class='studentnumb'>{{item.className}}</view>
+              </view>
+            
+              <view class='tabbtn' bindtap='selectitem' >
+                  <view class='img'>
+                      <image src='../../../images/tab.png'></image>
+                  </view>
+              </view>
+            </view>
+
+            <view class='tab tab-select back-green {{select?"isbottom":"ismiddle"}}'>
+              <view class='class'>
+                  <view class='classnumb'>{{studentlist[0].studentName}}</view>
+                  <view class='studentnumb'>{{studentlist[0].className}}</view>
               </view>
               <view class='tabbtn' bindtap='selectitem'>
                   <view class='img'>

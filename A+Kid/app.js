@@ -114,7 +114,7 @@ App({
     //家长个人中心
     my_parent_studentdetail:"/api/my/student/detail",//学生详情
     my_parent_studentadd:"/api/my/student/add",//学生关联提交
-    my_parent_studentcancel:"/api/my/student/cancel",
+    my_parent_studentcancel:"/api/my/student/cancel", //取消关联
     //打分
     teacher_list:"/api/my/teacher/list",//获取教师列表--------------------------------------------------------
     my_score_info: "/api/my/scoreinfo",//获取已评分老师的评分信息

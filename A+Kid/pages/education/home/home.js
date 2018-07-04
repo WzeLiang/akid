@@ -68,7 +68,7 @@ adviceinit:function(){
     console.log(userToken)
        this.getbannerlist()
       //  this.educationinit()
-      //  this.adviceinit()
+       // this.adviceinit()
   },
   
   /**

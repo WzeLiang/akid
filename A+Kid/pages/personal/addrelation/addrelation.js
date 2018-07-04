@@ -58,6 +58,7 @@ Page({
     //console.log(e.detail.value);
     var formdata = e.detail.value;
     var form = {
+      //"reSubmitToken": this.data.reSubmitToken,
       "studentName": formdata.studentName,
       "studentNumber": formdata.studentNumber,
       "merchantId": this.data.merchantId,
@@ -74,7 +75,7 @@ Page({
     }  else {
       //调用接口
       ajax(this.data.studentaddurl).paramters(form).post().then(res => {
-
+      console.log(res)
        this.showMessage('关联成功');
        setTimeout(function () {
          //要延时执行的代码 
@@ -84,14 +85,15 @@ Page({
        }, 1500) //延迟时间 这里是1秒  
   
       }).catch(err => {
-          if (err.data.respCode=="400"){
-            console.log(err.data)
-            this.showMessage("信息错误,请核对信息!");
-          }
+        console.log(err)
+          // if (err.data.respCode=="400"){
+          //   console.log(err.data)
+          //   this.showMessage("信息错误,请核对信息!");
+          // }
       })
     }
   },
-  //查找商户列表
+  //查找商户学校列表
   getmerchantlist: function () {
     ajax(this.data.merchantlisturl).paramters({}).post().then(res => {
        console.log(res.data);

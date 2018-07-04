@@ -10,7 +10,7 @@
        <view class='relation'>
           <view class='relation-box'>
               <block wx:for="{{user.students}}">
-                  <navigator url='../relastudentinfo/relastudentinfo'>
+                  <navigator url='../relastudentinfo/relastudentinfo?studentid={{item.studentId}}'>
                       <view class='relation-item' id="{{item.studentId}}">
                         <view class="item-img">
                           <image src='{{item.profilePicture}}'></image>

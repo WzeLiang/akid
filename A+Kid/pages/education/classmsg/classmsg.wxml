@@ -3,8 +3,8 @@
   <view wx:if="{{memberType==1}}">
     <view class='tabnav'>
       <view class='tab-item {{currentActive==index?"active":""}}' wx:for="{{tabnavlist}}" wx:key="" bindtap='testclick' data-current="{{index}}">
-        {{item.name}}
-        <view class='item-classnumb'>{{item.classnumb}}</view>
+        {{item.studentName}}
+        <view class='item-classnumb' style='heigth:{{item.className==""?"0":"30rpx"}}'>{{item.className}}</view>
       </view>
     </view>
 

@@ -42,8 +42,11 @@ Page({
   personalinit: function () {
     ajax(this.data.personaliniturl).paramters({}).post().then(res => {
       console.log(res.data);
+       wx.setStorageSync('studentlist', res.data.students);
+      // wx.setStorageSync('memberType', memberType);
       this.setData({
         user:res.data
+
 
       })
     }).catch(err => {
@@ -57,7 +60,7 @@ Page({
     this.setData({
       memberType: memberType
     })
-    this.personalinit()
+    
   
   },
 
@@ -72,7 +75,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.personalinit()
   },
 
   /**

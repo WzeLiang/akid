@@ -8,33 +8,30 @@
       </view>
       <view class='msg-name msg-item'>
           <view class='text-gray'>姓名</view>
-          <view class='text-black'>罗大佑</view>
+          <view class='text-black'>{{user.studentName}}</view>
       </view>
       <view class='msg-class msg-item'>
           <view class='text-gray'>班级</view>
-          <view class='text-black'>五年一班</view>
+          <view class='text-black'>{{user.className}}</view>
       </view>
        <view class='msg-sex msg-item'>
           <view class='text-gray'>性别</view>
-          <view class='text-black'>女</view>
+          <view wx:if="{{user.sex==0}}" class='text-black'>女</view>
+          <view wx:if="{{user.sex==1}}" class='text-black'>男</view>
       </view>
        <view class='msg-date msg-item'>
           <view class='text-gray'>出生日期</view>
-          <view class='text-black'>2012.02.22</view>
+          <view class='text-black'>{{user.birthdate}}</view>
       </view>
        <view class='msg-parent msg-item'>
           <view class='text-gray'>家长</view>
           <view class='parent-box'>
               <!--循环遍历家长信息  -->
-              <view  class='text-black'>
-                <text>父亲</text>
-                <text>吴家长</text>
-                <text>13999999999</text>
-              </view>
-              <view  class='text-black'>
-                <text>父亲</text>
-                <text>吴家长</text>
-                <text>13999999999</text>
+             
+              <view wx:for="{{user.parents}}">
+                  <text>{{item.relationType}}</text>
+                  <text>{{item.parentsName}}</text>
+                  <text>{{item.phone}}</text>
               </view>
           </view>
       </view>
@@ -47,6 +44,6 @@
     </view>
 
     <view class="cancel-btn text-center">
-        <view class="dis-button button-hover">取消关联</view>
+        <view class="dis-button button-hover" bindtap='disassociation'>取消关联</view>
     </view>
 </view> 
