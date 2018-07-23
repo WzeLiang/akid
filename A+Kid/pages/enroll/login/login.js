@@ -11,10 +11,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    array: ['请选择您的身份', '家长', '老师',],
+    index: 0,
     loginURL: app.globalData.login,
     showMessage: false,
     messageContent: '',
+    memberType: 0,
   },
   showMessage: function (text) {
     var that = this
@@ -29,15 +31,26 @@ Page({
       })
     }, 3000)
   },
+  listenerPickerSelected: function (e) {
+    //改变index值，通过setData()方法重绘界面
+    this.setData({
+      memberType: e.detail.value
+    });
+    console.log(this.data.memberType)
+  }, 
   loginsubmit:function(e){
     var that=this
     console.log(e.detail.value);
     var formdata = e.detail.value;
     var form={
       "phone": formdata.phone,
-      "password": formdata.password
+      "password": formdata.password,
+      "memberType": this.data.memberType
     }
-    if (formdata.phone==''){
+    if(this.data.memberType == 0){
+      this.showMessage('请选择身份');
+    }
+    else if (formdata.phone==''){
       this.showMessage('请输入手机号');
     } else if (formdata.password == ''){
       this.showMessage('请输入密码');

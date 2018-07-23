@@ -1,4 +1,5 @@
 var cells=[];
+var postweekarray=[];
 var clen = 7;
 var weekday=[];
 var currentFirstDate;
@@ -14,8 +15,10 @@ var formatDate = function (date) {
 
   return {
     totaldate: year +"."+ month +"."+ day,
+    postdate:year+"-"+month+"-"+day,
     daylist:day
   };
+  console.log(postdate)
 };
 var addDate = function (date, n) {
   date.setDate(date.getDate() + n);
@@ -31,12 +34,10 @@ var setDate = function (date) {
 
     cells[i] = formatDate(i == 0 ? date : addDate(date, 1)).totaldate;
     weekday[i] = formatDate(i == 0 ? date : addDate(date,0)).daylist;
+    postweekarray[i] = formatDate(i == 0 ? date : addDate(date, 0)).postdate;
   }
 //console.log(cells);
 
-// for (var i = 0; i < clen; i++) {
-//   weekday[i] = formatDate(i == 0 ? date : addDate(date, 1)).daylist;
-// }
 //console.log(weekday)
 };
  function pre() {
@@ -55,3 +56,4 @@ module.exports.pre = pre;
 module.exports.next = next;
 module.exports.cells = cells;
 module.exports.weekday = weekday;
+module.exports.postweekarray = postweekarray

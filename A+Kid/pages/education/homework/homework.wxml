@@ -14,24 +14,50 @@
   <view class='content-info text-black text-center'>
     <view class='head-date tr-item' style='border:none'>
      
-      <view wx:for="{{daylist}}" class='th-item' style='height:100%;'>
-        <view>{{item}}</view>
+      <view wx:for="{{daylist}}"  wx:key="index" class='th-item' style='height:100%;'>
+        <view data-index="{{index}}" class='{{index==num?"active":""}}' bindtap='parenthomework'>{{item}}</view>
       </view>
 
     </view>
     <view class='head-date tr-item'>
       
-      <view wx:for="{{weeklist}}" class='th-item text-green' style='height:100%;'>
-        <view>{{item}}</view>
+      <view wx:for="{{weeklist}}" wx:key="index" class='th-item text-green' style='height:100%;'>
+        <view data-index="{{index}}" class='{{index==num?"active":""}}' bindtap='parenthomework'>{{item}}</view>
       </view>
 
     </view>
 
   </view>
   </view>
-  <view class='parents'>
+  <view class='parents'  wx:if="{{memberType==1}}">
     <view class='homework-content'>
-      <view class='homework-item'>
+      <view  class='homework-item' wx:for="{{homeworklist}}" wx:key="">
+         <view wx:for="{{item.homeworks}}"  wx:for-item="subject" wx:key="subject.index">
+            <view class='item-title'>
+                <view class='student'>
+                    <view class='student-image'>
+                       <image src='http://192.168.212.29:9093{{item.profilePicture}}'></image>
+                    </view>
+                    <view class='student-info'>
+                      <view class='info-name'>{{item.studentName}}
+                          <text>{{item.className}}</text>
+                      </view>
+                      <view class='info-time'>{{item.homeworkDate}}</view>
+                    </view>
+              </view>
+               <view class='subject'>{{subject.subjectName}}</view>
+            </view>
+            <view class='item-content'>
+              <view>{{subject.homeworkContent}}</view>
+             </view>
+         </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='teacher'  wx:if="{{memberType==2}}">
+    <view class='homework-content'>
+     <view class='homework-item'>
         <view class='item-title'>
           <view class='student'>
             <view class='student-image'>
@@ -54,29 +80,7 @@
     </view>
   </view>
 
-  <view class='teacher'>
-    <view class='homework-content'>
-      <view class='homework-item'>
-        <view class='item-title'>
-          <view class='student'>
-            <view class='student-info'>
-              <view class='info-name'>张三
-                <text>五年二班</text>
-              </view>
-              <view class='info-time'>4.9 20：00</view>
-            </view>
-          </view>
-          <view class='subject'>数学</view>
-        </view>
-        <view class='item-content'>
-          <view>1、背诵课文</view>
-          <view>2、背诵元素周期表</view>
-        </view>
-      </view>
-    </view>
-  </view>
-
 </view>
-<view>
+<view wx:if="{{memberType==2}}">
   <navigator class='releasehomework' url='./releasehomework/releasehomework'>布置作业</navigator>
 </view>

@@ -13,7 +13,7 @@
                   <navigator url='../relastudentinfo/relastudentinfo?studentid={{item.studentId}}'>
                       <view class='relation-item' id="{{item.studentId}}">
                         <view class="item-img">
-                          <image src='{{item.profilePicture}}'></image>
+                          <image src='http://192.168.212.29:9093{{item.profilePicture}}'></image>
                         </view>
                         <view class="item-name">{{item.studentName}}</view>
                         <view class="item-class text-gray">{{item.className}}</view>

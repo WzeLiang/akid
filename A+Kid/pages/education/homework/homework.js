@@ -1,5 +1,8 @@
 // pages/education/homework/homework.js
-const app = getApp()
+
+const app = getApp();
+import ajax from '../../../utils/request';
+import { pageTo } from '../../../utils/utils';
 var choosedate = require("../../../utils/data.js")
 Page({
 
@@ -7,10 +10,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    usertype: app.globalData.usertype,
+    homeworkparentsurl: app.globalData.homeworkparents,
+    memberType: "",
     weekarr: [],
     weeklist: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-    daylist: []
+    daylist: [],
+    postweekarray:[],
+    homeworklist:[]
   },
 
   /**
@@ -21,6 +27,7 @@ Page({
     this.setData({
       weekarr: choosedate.cells,
       daylist: choosedate.weekday,
+      postweekarray: choosedate.postweekarray,
     })
   },
   nextweek: function () {
@@ -28,6 +35,7 @@ Page({
     this.setData({
       weekarr: choosedate.cells,
       daylist: choosedate.weekday,
+      postweekarray:choosedate.postweekarray,
     })
   },
   onLoad: function (options) {
@@ -35,9 +43,49 @@ Page({
     this.setData({
       weekarr: choosedate.cells,
       daylist: choosedate.weekday,
+      postweekarray: choosedate.postweekarray,
+    })
+    console.log(this.data.postweekarray)
+    var memberType = wx.getStorageSync("memberType")
+    var studentlist = wx.getStorageSync("studentlist")
+    if (!studentlist) {
+      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    } else {
+      this.setData({
+        studentlist: studentlist
+      })
+      console.log(this.data.studentlist)
+    }
+    this.setData({
+      memberType: memberType,
+    })
+    this.parenthomework()
+  },
+  parenthomework:function(e){
+    let homeworkDate='';
+    if(!e){
+      homeworkDate: this.data.postweekarray[0]
+    }
+    else{
+      homeworkDate= this.data.postweekarray[e.currentTarget.dataset.index];
+      this.setData({
+        num: e.currentTarget.dataset.index
+      })
+    }
+    console.log(homeworkDate)
+    var datas={
+      "homeworkDate": homeworkDate
+    }
+    ajax(this.data.homeworkparentsurl).paramters(datas).post().then(res => {
+      console.log(res.data);
+      this.setData({
+        homeworklist:res.data
+      })
+      console.log(this.data.homeworklist)
+    }).catch(err => {
+
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

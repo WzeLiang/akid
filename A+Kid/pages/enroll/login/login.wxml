@@ -4,6 +4,11 @@
 <view class="login">
  
   <form class='login-form'  bindsubmit="loginsubmit">
+   <view class='form-item'>
+        <picker mode="selector" placeholder-class="input-placeholder" range="{{array}}" name='memberType' value="{{memberType}}" bindchange="listenerPickerSelected">
+            <text>{{array[memberType]}}</text>
+        </picker>
+    </view>
     <view class='form-item'>
         <input placeholder='请输入您的手机号' name='phone' value='{{phone}}' placeholder-class="input-placeholder"  type='number' maxlength='11'></input>
     </view>

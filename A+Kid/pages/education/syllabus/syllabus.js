@@ -6,6 +6,7 @@ import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 var choosedate=require("../../../utils/data.js")
 Page({
   data: {
+
     courseparentsurl: app.globalData.courseparents,
     select:false,
     studentlist:[],
@@ -45,7 +46,7 @@ Page({
   selectitem:function(){
     var that=this
     this.setData({
-      select: (!that.data.select)
+      select: true
     })
   },
   /**
@@ -53,13 +54,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   //家长获取默认学生课表
-  parentgetsyllabus:function(){
-    //var classids =  this.data.studentlist[0].classId;
-    // var datas={
-    //   "classId": this.data.studentlist[0].classId
-    // }
+  parentgetsyllabus:function(e){
+    this.setData({
+      select: false
+    })
+        let classid;
+        if(!e){
+          console.log("没有");
+          classid = this.data.studentlist[0].classId
+        }else{
+          console.log("有")
+          classid = e.currentTarget.dataset.classid
+        }
+
         var datas={
-      "classId": 2
+          "classId": classid
     }
     ajax(this.data.courseparentsurl).paramters(datas).post().then(res => {
       console.log(res.data);

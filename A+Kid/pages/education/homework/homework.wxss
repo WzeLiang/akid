@@ -88,3 +88,6 @@
   bottom: 0;
   left: 0;
 }
+.head-date:first-child .th-item{
+  border-bottom: 1px solid #E5E5E5;
+}

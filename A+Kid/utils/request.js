@@ -90,9 +90,9 @@ class RequestApiHandler {
             if (result.data.respCode == "500") {
              // console.log("还未222")
                console.log(result)
-              //  wx.navigateTo({
-              //    url: '../../enroll/login/login',
-              //     })
+               wx.navigateTo({
+                 url: '../../enroll/login/login',
+                  })
            
             } else if (result.data.respCode == "300"){
               wx.navigateTo({
