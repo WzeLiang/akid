@@ -1,30 +1,22 @@
 // pages/education/syllabus/syllabus.js
 const app = getApp()
 var choosedate = require("../../../utils/data.js")
+import ajax from '../../../utils/request';
 Page({
   data: {
-    usertype: app.globalData.usertype,
+    studentId: "",
+    AttendanceParentsUrl: app.globalData.attendanceparents,
+    memberType: "",
+    select: false,
+    studentlist: [],
+    postweekarray: [],
     weekarr: [],
     weeklist: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
     daylist: [],
-    syllabusmap: [
-      {
-        classnumb: "五年二班",
-        studentid: 222,
-        studentname: "王大锤",
-        startdate: "2018.12.11",
-        enddate: "2018.12.18",
-        syllabuslist: [
-          { date: "2018.12.11", weeks: "周一", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] },
-          { date: "2018.12.12", weeks: "周二", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] },
-          { date: "2018.12.13", weeks: "周三", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] },
-          { date: "2018.12.14", weeks: "周四", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] },
-          { date: "2018.12.15", weeks: "周五", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] },
-          { date: "2018.12.16", weeks: "周六", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] },
-          { date: "2018.12.17", weeks: "周日", sunject: ["数学", "语文", "思想品德", "政治", "化学", "地理", "自然科学", "物理"] }
-        ]
-      }
-    ]
+    num: 0,
+  
+    defaultstudentindex:0       //选中学生index
+
   },
   //格式化日期 
 
@@ -33,19 +25,30 @@ Page({
     choosedate.pre()
     this.setData({
       weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+      postweekarray: choosedate.postweekarray,
+      num:0
     })
+    this.AttendanceParents()
   },
   nextweek: function () {
     choosedate.next()
     this.setData({
       weekarr: choosedate.cells,
+      daylist: choosedate.weekday,
+      postweekarray: choosedate.postweekarray,
+      num: 0
     })
+    this.AttendanceParents()
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  bbb: function () {
-    //console.log(this.data.aaa)
+  selectitem: function () {
+    var that = this
+    this.setData({
+      select: true
+    })
   },
 
   onLoad: function (options) {
@@ -55,12 +58,62 @@ Page({
     this.setData({
       weekarr: choosedate.cells,
       daylist: choosedate.weekday,
+      postweekarray: choosedate.postweekarray,
+
+    })
+    var memberType = wx.getStorageSync("memberType")
+    var studentlist = wx.getStorageSync("studentlist")
+    if (!studentlist) {
+      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    } else {
+      this.setData({
+        studentlist: studentlist
+      })
+      console.log(this.data.studentlist)
+    }
+    this.setData({
+      memberType: memberType,
     })
 
-
-
+    this.AttendanceParents()
   },
 
+  AttendanceParents:function(e){
+    this.setData({
+      select: false,
+    })
+    if (!e) {
+      console.log("没有");
+      this.setData({
+        studentId: this.data.studentlist[0].studentId
+      })
+    } else {
+      console.log("有");
+      console.log(e)
+      this.setData({
+        defaultstudentindex: e.currentTarget.dataset.index,
+       studentId: e.currentTarget.dataset.studentid
+      })
+    }
+    var datas={
+      "studentId": this.data.studentId,
+      "weekStart": this.data.postweekarray[0],
+      "weekEnd": this.data.postweekarray[6]
+
+    }
+    console.log(datas)
+    ajax(this.data.AttendanceParentsUrl).paramters(datas).post().then(res => {
+      console.log(res.data);
+
+    }).catch(err => {
+
+    })
+  },
+  gettodayattend:function(e){
+    this.setData({
+      num: e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

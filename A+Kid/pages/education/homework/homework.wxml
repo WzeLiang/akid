@@ -30,9 +30,9 @@
   </view>
   </view>
   <view class='parents'  wx:if="{{memberType==1}}">
-    <view class='homework-content'>
-      <view  class='homework-item' wx:for="{{homeworklist}}" wx:key="">
-         <view wx:for="{{item.homeworks}}"  wx:for-item="subject" wx:key="subject.index">
+    <view class='homework-content' wx:for="{{homeworklist}}" wx:key="">
+      <view  class='homework-item' wx:for="{{item.homeworks}}"  wx:for-item="subject" wx:key="subject.index"  >
+       
             <view class='item-title'>
                 <view class='student'>
                     <view class='student-image'>
@@ -50,7 +50,7 @@
             <view class='item-content'>
               <view>{{subject.homeworkContent}}</view>
              </view>
-         </view>
+        
       </view>
     </view>
   </view>

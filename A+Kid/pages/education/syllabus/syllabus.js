@@ -6,7 +6,7 @@ import { $wuxDialog, $wuxLoading } from '../../../templates/index';
 var choosedate=require("../../../utils/data.js")
 Page({
   data: {
-
+    classid:"",
     courseparentsurl: app.globalData.courseparents,
     select:false,
     studentlist:[],
@@ -23,7 +23,8 @@ Page({
       { index: 6, subjects: ["语文", "数学", "英语", "政治", "历史", "体育", "物理"] },
       { index: 7, subjects: ["语文", "数学", "英语", "政治", "历史", "体育", "物理"] },
       { index: 8, subjects: ["语文", "数学", "英语", "政治", "历史", "体育", "物理"] },
-    ]
+    ],
+    defaultstudentindex: 0 //选中学生index
    
   },
   //格式化日期 
@@ -61,10 +62,14 @@ Page({
         let classid;
         if(!e){
           console.log("没有");
-          classid = this.data.studentlist[0].classId
+          classid = this.data.studentlist[0].classId;
         }else{
           console.log("有")
-          classid = e.currentTarget.dataset.classid
+         
+          this.setData({
+            defaultstudentindex: e.currentTarget.dataset.index,
+             classid : e.currentTarget.dataset.classid
+          })
         }
 
         var datas={

@@ -15,8 +15,9 @@ Page({
     weekarr: [],
     weeklist: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
     daylist: [],
-    postweekarray:[],
-    homeworklist:[]
+    postweekarray:[],//提交日期列表
+    homeworklist:[],
+    num:0
   },
 
   /**
@@ -29,6 +30,7 @@ Page({
       daylist: choosedate.weekday,
       postweekarray: choosedate.postweekarray,
     })
+    this.parenthomework()
   },
   nextweek: function () {
     choosedate.next()
@@ -37,6 +39,7 @@ Page({
       daylist: choosedate.weekday,
       postweekarray:choosedate.postweekarray,
     })
+    this.parenthomework()
   },
   onLoad: function (options) {
     choosedate.setDate(new Date());
@@ -64,7 +67,9 @@ Page({
   parenthomework:function(e){
     let homeworkDate='';
     if(!e){
-      homeworkDate: this.data.postweekarray[0]
+      console.log("初次加载")
+      console.log(this.data.postweekarray[0])
+      homeworkDate=this.data.postweekarray[0]
     }
     else{
       homeworkDate= this.data.postweekarray[e.currentTarget.dataset.index];
